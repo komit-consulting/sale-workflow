@@ -14,5 +14,8 @@
     "license": "AGPL-3",
     "installable": True,
     "depends": ["sale", "product_assortment", "base_view_inheritance_extension"],
-    "data": ["views/sale_order_view.xml"],
+    "data": [
+        "security/sale_order_product_assortment_security.xml",
+        "views/sale_order_view.xml",
+    ],
 }
