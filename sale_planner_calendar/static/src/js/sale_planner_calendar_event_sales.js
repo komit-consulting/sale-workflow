@@ -16,7 +16,7 @@ odoo.define(
                 var calendar_summary_id =
                     self.initialState.getContext().default_calendar_summary_id;
                 this._rpc({
-                    model: "sale.planner.calendar.event",
+                    model: "calendar.event",
                     method: "action_open_sale_order",
                     args: [false, {new_order: true}],
                     context: {calendar_summary_id: calendar_summary_id || false},
