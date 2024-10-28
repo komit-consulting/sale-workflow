@@ -1,7 +1,7 @@
 # Copyright 2021 Tecnativa - Sergio Teruel
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 
-from datetime import date
+from datetime import date, timedelta
 
 from freezegun import freeze_time
 
@@ -35,6 +35,9 @@ class TestSalePlannerCalendar(TransactionCase):
         cls.AccountJournal = cls.env["account.journal"]
         cls.SaleOrder = cls.env["sale.order"]
         cls.SalePlannerCalendarEvent = cls.env["calendar.event"]
+
+        account_group = cls.env.ref("account.group_account_user")
+        cls.env.user.write({"groups_id": [(4, account_group.id)]})
 
         cls.event_type_commercial_visit = cls.env.ref(
             "sale_planner_calendar.event_type_commercial_visit"
@@ -195,7 +198,10 @@ class TestSalePlannerCalendar(TransactionCase):
         event = self.planned_events[0]
         self.assertTrue(event.user_id in self.commercial_users)
         self.assertEqual(event.rrule_type, "weekly")
-        self.assertEqual(event.location, event.target_partner_id._display_address())
+        self.assertEqual(
+            event.location,
+            event.target_partner_id._display_address(True).replace("\n", " "),
+        )
 
     def test_planner_calendar_wizard(self):
         wiz_form = Form(self.env["sale.planner.calendar.wizard"])
@@ -254,6 +260,52 @@ class TestSalePlannerCalendar(TransactionCase):
         record.line_ids[0].selected = True
         record.action_assign_new_salesperson()
         self.assertEqual(len(record.line_ids.filtered(lambda ln: ln.new_user_id)), 1)
+
+    def test_reassign_wizard_apply(self):
+        # When creating new recurring events for reallocated changes,
+        # each event must have a new recurrence. This test is
+        # incorporated to control that no event is left without recurrence.
+        wiz_form = Form(self.env["sale.planner.calendar.reassign.wiz"])
+        wiz_form.user_id = self.commercial_user_1
+        wiz_form.assign_new_salesperson_to_partner = True
+        wiz_form.new_start = date.today() + timedelta(days=8)
+        wiz_form.new_end = wiz_form.new_start + timedelta(days=20)
+        record = wiz_form.save()
+        record.action_get_lines()
+        record.line_ids[0].new_user_id = self.commercial_user_2
+        old_event = record.line_ids[0].calendar_event_id
+        recurrence_events = old_event.recurrence_id.calendar_event_ids
+        new_base_event_start = recurrence_events.filtered(
+            lambda ce: ce.start.date() >= record.new_start
+        ).sorted("start")[:1]
+        self.assertTrue(new_base_event_start.recurrence_id)
+        self.assertEqual(new_base_event_start.recurrence_id, old_event.recurrence_id)
+        new_base_event_end = recurrence_events.filtered(
+            lambda ce: ce.start.date() >= record.new_end
+        ).sorted("start")[:1]
+        self.assertTrue(new_base_event_end.recurrence_id)
+        self.assertEqual(new_base_event_end.recurrence_id, old_event.recurrence_id)
+        record.apply()
+        # Events created for changes must have a new recurrence created from the old event
+        self.assertTrue(
+            self.env["calendar.event"].browse(new_base_event_start.id).recurrence_id
+        )
+        self.assertNotEqual(
+            self.env["calendar.event"].browse(new_base_event_start.id).recurrence_id,
+            old_event.recurrence_id,
+        )
+        self.assertTrue(
+            self.env["calendar.event"].browse(new_base_event_end.id).recurrence_id
+        )
+        self.assertNotEqual(
+            self.env["calendar.event"].browse(new_base_event_end.id).recurrence_id,
+            old_event.recurrence_id,
+        )
+        # The original event must maintain its recurrence
+        self.assertEqual(
+            self.env["calendar.event"].browse(old_event.id).recurrence_id,
+            old_event.recurrence_id,
+        )
 
     def test_reassign_wizard_subscriptions(self):
         # Create a SO for partner 1 and user commercial 1
