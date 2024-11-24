@@ -67,6 +67,10 @@ def _profiles_to_calendar_event_type(env):
         """
         INSERT INTO calendar_event_type (name, icon, old_sale_planner_profile_id)
             SELECT name, icon, id FROM sale_planner_calendar_event_profile
+        ON CONFLICT (name)
+        DO UPDATE SET
+            icon = EXCLUDED.icon,
+            old_sale_planner_profile_id = EXCLUDED.old_sale_planner_profile_id;
     """,
     )
 
