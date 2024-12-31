@@ -7,6 +7,7 @@ from datetime import timedelta
 from odoo import fields
 from odoo.exceptions import UserError
 from odoo.tests import tagged
+from odoo.tools.safe_eval import safe_eval
 
 from .common import TestAutomaticWorkflowMixin, TestCommon
 
@@ -234,3 +235,48 @@ class TestAutomaticWorkflow(TestCommon, TestAutomaticWorkflowMixin):
         )
         self.assertTrue(payment_id)
         self.assertEqual(invoice.currency_id.id, payment_id.currency_id.id)
+
+    def test_automatic_invoice_send_mail(self):
+        workflow = self.create_full_automatic()
+        workflow.send_invoice = False
+        sale = self.create_sale_order(workflow)
+        sale.user_id = self.user.id
+        sale._onchange_workflow_process_id()
+        self.run_job()
+        invoice = sale.invoice_ids
+        invoice.message_subscribe(partner_ids=[invoice.partner_id.id])
+        invoice.company_id.invoice_is_email = True
+        previous_message_ids = invoice.message_ids
+        workflow.send_invoice = True
+        sale._onchange_workflow_process_id()
+        self.run_job()
+
+        new_messages = self.env["mail.message"].search(
+            [
+                ("id", "in", invoice.message_ids.ids),
+                ("id", "not in", previous_message_ids.ids),
+            ]
+        )
+
+        self.assertTrue(
+            new_messages.filtered(
+                lambda x: x.subtype_id == self.env.ref("mail.mt_comment")
+            )
+        )
+
+    def test_job_bypassing(self):
+        """We can only test send_invoice for now as it is the only option
+        to actually implement this."""
+        workflow = self.create_full_automatic()
+        workflow_job = self.env["automatic.workflow.job"]
+        sale = self.create_sale_order(workflow)
+        sale._onchange_workflow_process_id()
+        send_invoice_filter = safe_eval(workflow.send_invoice_filter_id.domain)
+
+        # Trigger everything, then check if send invoice jobs is bypassed
+        self.run_job()
+
+        invoice = sale.invoice_ids
+        res_send_invoice = workflow_job._do_send_invoice(invoice, send_invoice_filter)
+
+        self.assertIn("job bypassed", res_send_invoice)
