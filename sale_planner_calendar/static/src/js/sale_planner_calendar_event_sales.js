@@ -59,6 +59,8 @@ odoo.define(
                 ...KanbanRecord.prototype.events,
                 "click .oe_planner_calendar_previous_after":
                     "_onSalePlannerCalendarKanbanButtonPreviousAfter",
+                "click .oe_planner_calendar_set_time":
+                    "_onSalePlannerCalendarKanbanButtonSetTime",
             },
             _onSalePlannerCalendarKanbanButtonPreviousAfter: function (ev) {
                 var dataset = this.getParent().getChildren();
@@ -84,6 +86,28 @@ odoo.define(
                         this.trigger_up("reload", {keepChanges: true});
                     },
                 });
+            },
+            _onSalePlannerCalendarKanbanButtonSetTime: function () {
+                this.do_action(
+                    {
+                        type: "ir.actions.act_window",
+                        name: "Sale planner calendar change hour",
+                        res_model: "calendar.event",
+                        view_mode: "form",
+                        views: [[false, "form"]],
+                        context: {
+                            form_view_ref:
+                                "sale_planner_calendar.view_sale_planner_calendar_change_hour_form",
+                        },
+                        target: "new",
+                        res_id: this.recordData.id,
+                    },
+                    {
+                        on_close: () => {
+                            this.trigger_up("reload", {keepChanges: true});
+                        },
+                    }
+                );
             },
         });
         const SalePlannerCalendarEventKanbanRenderer = KanbanRenderer.extend({

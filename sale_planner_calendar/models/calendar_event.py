@@ -380,13 +380,6 @@ class CalendarEvent(models.Model):
     def action_apply_issue(self):
         pass
 
-    def action_open_change_hour_wiz(self):
-        action = self.env["ir.actions.act_window"]._for_xml_id(
-            "sale_planner_calendar.action_sale_planner_calendar_change_hour"
-        )
-        action["res_id"] = self.id
-        return action
-
     def action_apply_change_hour_wiz(self):
         pass
 
