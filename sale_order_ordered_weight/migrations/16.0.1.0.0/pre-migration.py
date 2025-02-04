@@ -5,7 +5,7 @@
 from openupgradelib import openupgrade
 
 # pylint: disable=W8150
-from odoo.addons.sale_order_weight import pre_init_hook
+from odoo.addons.sale_order_ordered_weight import pre_init_hook
 
 
 @openupgrade.migrate()

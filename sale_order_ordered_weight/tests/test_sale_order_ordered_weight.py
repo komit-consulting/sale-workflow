@@ -4,7 +4,7 @@
 from odoo.tests import common
 
 
-class TestSaleOrderWeight(common.TransactionCase):
+class TestSaleOrderOrderedWeight(common.TransactionCase):
     def setUp(self):
         super().setUp()
         self.partner = self.env.ref("base.res_partner_1")
@@ -40,6 +40,6 @@ class TestSaleOrderWeight(common.TransactionCase):
             }
         )
 
-    def test_sale_order_weight(self):
+    def test_sale_order_ordered_weight(self):
         # 10 * 5 kg * 1 (Unit) + 1 * 5 kg * 12 (Dozen)
         self.assertEqual(self.sale_order.total_ordered_weight, 110.0)
