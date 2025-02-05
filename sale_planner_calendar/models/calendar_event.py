@@ -383,6 +383,22 @@ class CalendarEvent(models.Model):
     def action_apply_change_hour_wiz(self):
         pass
 
+    def _apply_recurrence_values(self, values, future=True):
+        """Method to apply recurrence when 'create_recurrence_new_user' key is set on
+        the context.
+        """
+        if not self.env.context.get("create_recurrence_new_user") or not future:
+            return super()._apply_recurrence_values(values, future=future)
+        to_update = self.env["calendar.recurrence"]
+        for event in self:
+            to_update |= event.recurrence_id._split_from(event, values)
+        self.with_context(create_recurrence_new_user=False).write(
+            {"recurrency": True, "follow_recurrence": True}
+        )
+        return to_update.with_context(
+            create_recurrence_new_user=False
+        )._apply_recurrence()
+
     def _get_hour_tz_offset(self):
         timezone = self._context.get("tz") or self.env.user.partner_id.tz or "UTC"
         self_tz = self.with_context(tz=timezone)

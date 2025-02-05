@@ -134,7 +134,7 @@ class SalePlannerCalendarReassignWiz(models.TransientModel):
                     + line.event_user_id.partner_id
                     - line.new_user_id.partner_id
                 ).ids
-                new_base_event_end.write(
+                new_base_event_end.with_context(create_recurrence_new_user=True).write(
                     {
                         "recurrence_update": "future_events",
                         "user_id": line.event_user_id.id,
@@ -169,7 +169,9 @@ class SalePlannerCalendarReassignWiz(models.TransientModel):
                 new_base_event_vals["categ_ids"] = [
                     (6, 0, line.new_event_categ_ids.ids)
                 ]
-            new_base_event_start.write(new_base_event_vals)
+            new_base_event_start.with_context(create_recurrence_new_user=True).write(
+                new_base_event_vals
+            )
 
             old_event_vals = {
                 "recurrence_update": "all_events",
