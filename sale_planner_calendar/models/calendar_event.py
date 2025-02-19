@@ -96,12 +96,10 @@ class CalendarEvent(models.Model):
     location_url = fields.Char(compute="_compute_location_url")
     profile_icon = fields.Char(related="categ_ids.icon")
 
-    @api.depends("recurrence_id", "recurrence_id.calendar_event_ids")
+    @api.depends("recurrence_id.base_event_id")
     def _compute_is_base_recurrent_event(self):
-        for record in self:
-            record.is_base_recurrent_event = (
-                record == record.recurrence_id.calendar_event_ids.sorted("start")[:1]
-            )
+        for event in self:
+            event.is_base_recurrent_event = event == event.recurrence_id.base_event_id
 
     @api.depends("start")
     def _compute_hour(self):
