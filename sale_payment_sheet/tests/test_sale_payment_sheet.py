@@ -6,14 +6,24 @@
 from freezegun import freeze_time
 
 from odoo.exceptions import UserError, ValidationError
-from odoo.tests import Form, TransactionCase
+from odoo.tests import Form, TransactionCase, tagged
 
 
 @freeze_time("2021-01-01 09:30:00")
+@tagged("post_install", "-at_install")
 class TestSaleInvoicePayment(TransactionCase):
     @classmethod
     def setUpClass(cls):
         super().setUpClass()
+        if not cls.env.company.chart_template_id:
+            # Load a CoA if there's none in current company
+            coa = cls.env.ref("l10n_generic_coa.configurable_chart_template", False)
+            if not coa:
+                # Load the first available CoA
+                coa = cls.env["account.chart.template"].search(
+                    [("visible", "=", True)], limit=1
+                )
+            coa.try_loading(company=cls.env.company, install_demo=False)
         # Remove time zone from user to avoid to time local representation
         cls.env.user.partner_id.tz = False
         # Archive all reconciliation models to avoid them interfering with the tests
