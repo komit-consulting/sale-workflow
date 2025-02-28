@@ -9,7 +9,6 @@ from odoo.exceptions import UserError, ValidationError
 from odoo.tests import Form, TransactionCase, tagged
 
 
-@freeze_time("2021-01-01 09:30:00")
 @tagged("post_install", "-at_install")
 class TestSaleInvoicePayment(TransactionCase):
     @classmethod
@@ -123,6 +122,7 @@ class TestSaleInvoicePayment(TransactionCase):
                         line_sheet.amount = 50.0
         return sheet_form.save()
 
+    @freeze_time("2021-01-01 09:30:00")
     def test_manual_payment_sheet(self):
         sheet = self._create_payment_sheet()
         self.assertEqual(len(sheet.line_ids), 2)
