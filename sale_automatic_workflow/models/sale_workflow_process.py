@@ -55,6 +55,12 @@ class SaleWorkflowProcess(models.Model):
         related="validate_invoice_filter_id.domain",
     )
     send_invoice = fields.Boolean()
+    send_invoice_template_id = fields.Many2one(
+        "mail.template",
+        "Use template",
+        domain="[('model', '=', 'account.move')]",
+        help="Template to use when sending the email. Keep blank to use the default.",
+    )
     send_invoice_filter_domain = fields.Text(
         string="Send Invoice Filter Domain",
         related="send_invoice_filter_id.domain",

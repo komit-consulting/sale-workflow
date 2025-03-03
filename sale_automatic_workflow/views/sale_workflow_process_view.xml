@@ -154,7 +154,17 @@
                                 can_create="true"
                                 can_write="true"
                             />
+
                         </div>
+                    </div>
+                    <!-- how to do that better without breaking the layout ? -->
+                    <field name="send_invoice" invisible="1" />
+                    <label
+                        for="send_invoice_template_id"
+                        attrs="{'invisible':[('send_invoice','!=',True)]}"
+                    />
+                    <div attrs="{'invisible':[('send_invoice','!=',True)]}">
+                        <field name="send_invoice_template_id" />
                     </div>
                     <field name="register_payment" />
                     <label

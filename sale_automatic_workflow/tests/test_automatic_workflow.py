@@ -237,6 +237,17 @@ class TestAutomaticWorkflow(TestCommon, TestAutomaticWorkflowMixin):
         self.assertEqual(invoice.currency_id.id, payment_id.currency_id.id)
 
     def test_automatic_invoice_send_mail(self):
+        def _get_last_sent_messages(invoice, previous_message_ids):
+            new_messages = self.env["mail.message"].search(
+                [
+                    ("id", "in", invoice.message_ids.ids),
+                    ("id", "not in", previous_message_ids.ids),
+                ]
+            )
+            return new_messages.filtered(
+                lambda x: x.subtype_id == self.env.ref("mail.mt_comment")
+            )
+
         workflow = self.create_full_automatic()
         workflow.send_invoice = False
         sale = self.create_sale_order(workflow)
@@ -246,22 +257,37 @@ class TestAutomaticWorkflow(TestCommon, TestAutomaticWorkflowMixin):
         invoice = sale.invoice_ids
         invoice.message_subscribe(partner_ids=[invoice.partner_id.id])
         invoice.company_id.invoice_is_email = True
-        previous_message_ids = invoice.message_ids
+
         workflow.send_invoice = True
         sale._onchange_workflow_process_id()
+        previous_message_ids = invoice.message_ids
         self.run_job()
-
-        new_messages = self.env["mail.message"].search(
-            [
-                ("id", "in", invoice.message_ids.ids),
-                ("id", "not in", previous_message_ids.ids),
-            ]
+        sent_messages = _get_last_sent_messages(invoice, previous_message_ids)
+        self.assertTrue(invoice.is_move_sent)
+        self.assertTrue(sent_messages)
+        msg_body = sent_messages[0].body
+        self.assertTrue(
+            all(
+                s in msg_body for s in [f"{invoice.partner_id.name}", f"{invoice.name}"]
+            ),
+            "This does not seems to be the default template that was used",
         )
 
-        self.assertTrue(
-            new_messages.filtered(
-                lambda x: x.subtype_id == self.env.ref("mail.mt_comment")
-            )
+        template = self.env.ref("account.email_template_edi_invoice").copy()
+        template.body_html = "This is the body of the test message for Caius Julius"
+        workflow.send_invoice_template_id = template
+        sale._onchange_workflow_process_id()
+        invoice.is_move_sent = False
+        previous_message_ids = invoice.message_ids
+        self.run_job()
+        sent_messages = _get_last_sent_messages(invoice, previous_message_ids)
+        self.assertTrue(invoice.is_move_sent)
+        self.assertTrue(sent_messages)
+        msg_body = sent_messages[0].body
+        self.assertIn(
+            "This is the body of the test message for Caius Julius",
+            msg_body,
+            "This does not seems to be the specific template that was used",
         )
 
     def test_job_bypassing(self):
