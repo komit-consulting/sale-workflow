@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: sale-workflow (9.0)\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2016-12-31 01:43+0000\n"
-"PO-Revision-Date: 2024-02-14 13:36+0000\n"
+"PO-Revision-Date: 2025-03-03 18:06+0000\n"
 "Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: Italian (http://www.transifex.com/oca/OCA-sale-workflow-9-0/"
 "language/it/)\n"
@@ -18,7 +18,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Weblate 4.17\n"
+"X-Generator: Weblate 5.10.2\n"
 
 #. module: sale_exception
 #: model:ir.model.fields,field_description:sale_exception.field_sale_exception_active
@@ -163,7 +163,7 @@ msgstr "Nessun CAP sull'indirizzo di destinazione"
 #: model:sale.exception,description:sale_exception.excep_no_stock
 #: model:sale.exception,name:sale_exception.excep_no_stock
 msgid "Not Enough Virtual Stock"
-msgstr "Giacenza vituale non sufficiente"
+msgstr "Giacenza virtuale non sufficiente"
 
 #. module: sale_exception
 #: model:ir.model.fields,field_description:sale_exception.field_sale_exception_code
