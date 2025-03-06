@@ -53,6 +53,11 @@ Authors
 
 * Akretion
 
+Contributors
+~~~~~~~~~~~~
+
+* Sébastien BEAU <sebastien.beau@akretion.com>
+
 Maintainers
 ~~~~~~~~~~~
 
