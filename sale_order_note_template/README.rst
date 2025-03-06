@@ -82,6 +82,11 @@ Authors
 
 * Pierre Verkest
 
+Contributors
+~~~~~~~~~~~~
+
+* Pierre Verkest <pierrevkest84@gmail.com>
+
 Maintainers
 ~~~~~~~~~~~
 
