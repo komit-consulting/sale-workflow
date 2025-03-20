@@ -939,13 +939,6 @@ msgid "Sale planner calendar Wizard"
 msgstr "Asistente de planificación"
 
 #. module: sale_planner_calendar
-#: model:ir.actions.act_window,name:sale_planner_calendar.action_sale_planner_calendar_change_hour
-#, fuzzy
-#| msgid "Sale planner calendar Wizard"
-msgid "Sale planner calendar change hour"
-msgstr "Asistente de planificación"
-
-#. module: sale_planner_calendar
 #: model_terms:ir.ui.view,arch_db:sale_planner_calendar.view_sale_planner_calendar_change_hour_form
 #: model_terms:ir.ui.view,arch_db:sale_planner_calendar.view_sale_planner_calendar_form
 #: model_terms:ir.ui.view,arch_db:sale_planner_calendar.view_sale_planner_calendar_issue_form
@@ -1284,6 +1277,11 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sale_planner_calendar.view_sale_planner_calendar_reassign_wiz
 msgid "or"
 msgstr "o"
+
+#, fuzzy
+#~| msgid "Sale planner calendar Wizard"
+#~ msgid "Sale planner calendar change hour"
+#~ msgstr "Asistente de planificación"
 
 #~ msgid "Categ Icons"
 #~ msgstr "Iconos categorías"
