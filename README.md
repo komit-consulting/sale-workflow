@@ -32,7 +32,7 @@ addon | version | maintainers | summary
 [product_supplierinfo_for_customer_sale_quick](product_supplierinfo_for_customer_sale_quick/) | 14.0.1.0.0 | [![toita86](https://github.com/toita86.png?size=30px)](https://github.com/toita86) | Adapts the new fields added by Product Supplierinfo for Customer Salewith the Sale Quick module.
 [sale_advance_payment](sale_advance_payment/) | 14.0.1.1.4 |  | Allow to add advance payments on sales and then use them on invoices
 [sale_amount_payment_link](sale_amount_payment_link/) | 14.0.1.0.1 |  | Reduce Amount to be paid while Payment Link is generated on Sale Order, depending on done Transactions.
-[sale_automatic_workflow](sale_automatic_workflow/) | 14.0.1.4.0 |  | Sale Automatic Workflow
+[sale_automatic_workflow](sale_automatic_workflow/) | 14.0.1.5.0 |  | Sale Automatic Workflow
 [sale_automatic_workflow_delivery_state](sale_automatic_workflow_delivery_state/) | 14.0.1.0.0 |  | Glue module for sale_automatic_workflow and sale_delivery_state
 [sale_automatic_workflow_ignore_exception](sale_automatic_workflow_ignore_exception/) | 14.0.1.0.2 |  | Sale automatic workflow ignore exception
 [sale_automatic_workflow_invoice_default_value](sale_automatic_workflow_invoice_default_value/) | 14.0.1.0.0 |  | Sale automatic workflow invoice default values
