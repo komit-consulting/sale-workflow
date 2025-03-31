@@ -92,7 +92,7 @@ addon | version | maintainers | summary
 [sale_order_line_initial_quantity](sale_order_line_initial_quantity/) | 14.0.1.0.1 |  | Allows to display the initial quantity when the quantity has been modified on the command line.
 [sale_order_line_input](sale_order_line_input/) | 14.0.1.0.1 |  | Search, create or modify directly sale order lines
 [sale_order_line_menu](sale_order_line_menu/) | 14.0.1.0.0 |  | Adds a Sale Order Lines Menu
-[sale_order_line_note](sale_order_line_note/) | 14.0.1.0.0 |  | Note on sale order line
+[sale_order_line_note](sale_order_line_note/) | 14.0.1.0.1 |  | Note on sale order line
 [sale_order_line_packaging_qty](sale_order_line_packaging_qty/) | 14.0.1.1.1 |  | Define quantities according to product packaging on sale order lines
 [sale_order_line_price_history](sale_order_line_price_history/) | 14.0.1.0.0 |  | Sale order line price history
 [sale_order_line_sequence](sale_order_line_sequence/) | 14.0.2.0.0 |  | Propagates SO line sequence to invoices and stock picking.
@@ -100,7 +100,7 @@ addon | version | maintainers | summary
 [sale_order_lot_selection](sale_order_lot_selection/) | 14.0.1.2.0 | [![bodedra](https://github.com/bodedra.png?size=30px)](https://github.com/bodedra) | Sale Order Lot Selection
 [sale_order_lot_selection_by_quant](sale_order_lot_selection_by_quant/) | 14.0.1.0.1 | [![aleuffre](https://github.com/aleuffre.png?size=30px)](https://github.com/aleuffre) | Sale Order Lot Selection By Quant
 [sale_order_mass_action](sale_order_mass_action/) | 14.0.1.0.0 |  | Allows to easy mass operations on sale orders.
-[sale_order_note_template](sale_order_note_template/) | 14.0.1.0.0 |  | Add sale orders terms and conditions template that can be used to quickly fullfill sale order terms and conditions
+[sale_order_note_template](sale_order_note_template/) | 14.0.1.0.1 |  | Add sale orders terms and conditions template that can be used to quickly fullfill sale order terms and conditions
 [sale_order_partner_restrict](sale_order_partner_restrict/) | 14.0.1.1.0 | [![OriolVForgeFlow](https://github.com/OriolVForgeFlow.png?size=30px)](https://github.com/OriolVForgeFlow) | Apply restrictions when selecting from the list of customers on SO.
 [sale_order_price_recalculation](sale_order_price_recalculation/) | 14.0.1.0.0 |  | Recalculate prices / Reset descriptions on sale order lines
 [sale_order_priority](sale_order_priority/) | 14.0.1.0.0 |  | Define priority on sale orders
