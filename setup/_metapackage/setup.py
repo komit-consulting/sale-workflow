@@ -112,6 +112,7 @@ setuptools.setup(
         'odoo-addon-sale_validity_auto_cancel>=15.0dev,<15.1dev',
         'odoo-addon-sale_warn_option>=15.0dev,<15.1dev',
         'odoo-addon-sale_wishlist>=15.0dev,<15.1dev',
+        'odoo-addon-sales_team_invoiced_target_domain>=15.0dev,<15.1dev',
         'odoo-addon-sales_team_security>=15.0dev,<15.1dev',
         'odoo-addon-sales_team_security_crm>=15.0dev,<15.1dev',
         'odoo-addon-sales_team_security_sale>=15.0dev,<15.1dev',
