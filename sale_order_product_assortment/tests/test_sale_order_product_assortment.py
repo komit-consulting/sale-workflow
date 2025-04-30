@@ -58,3 +58,28 @@ class TestProductAssortment(BaseCommon):
         self.assertTrue(sale_order_3.has_allowed_products)
         self.assertNotIn(product_2, sale_order_3.allowed_product_ids)
         self.assertNotIn(product_3, sale_order_3.allowed_product_ids)
+
+    def test_allowed_product_ids_multi_recordset(self):
+        product_1 = self.product_obj.create({"name": "MultiRecord Product"})
+        assortment = self.filter_obj.create(
+            {
+                "name": "MultiRecord Assortment",
+                "model_id": "product.product",
+                "domain": [],
+                "is_assortment": True,
+                "partner_ids": [(4, self.partner_1.id)],
+                "whitelist_product_ids": [(4, product_1.id)],
+            }
+        )
+        self.partner_1._update_partner_assortments()
+        sale_order_1 = self.sale_order_obj.create({"partner_id": self.partner_1.id})
+        sale_order_2 = self.sale_order_obj.create({"partner_id": self.partner_1.id})
+        combined = sale_order_1 | sale_order_2
+        combined._compute_product_assortment_ids()
+        for order in combined:
+            self.assertEqual(
+                order.allowed_product_ids,
+                assortment.whitelist_product_ids,
+                f"Sale order {order.name} has incorrect allowed products.",
+            )
+        self.assertTrue(all(combined.mapped("has_allowed_products")))
