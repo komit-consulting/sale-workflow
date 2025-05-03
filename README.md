@@ -70,6 +70,7 @@ addon | version | maintainers | summary
 [sale_order_line_description](sale_order_line_description/) | 15.0.1.0.0 |  | Sale order line description
 [sale_order_line_input](sale_order_line_input/) | 15.0.1.1.0 |  | Search, create or modify directly sale order lines
 [sale_order_line_menu](sale_order_line_menu/) | 15.0.1.2.0 |  | Adds a Sale Order Lines Menu
+[sale_order_line_not_billable](sale_order_line_not_billable/) | 15.0.1.0.0 |  | Set product as not billable and ensure its filtered when invoicing the sale order.
 [sale_order_line_note](sale_order_line_note/) | 15.0.1.0.0 |  | Note on sale order line
 [sale_order_line_price_history](sale_order_line_price_history/) | 15.0.2.0.2 |  | Sale order line price history
 [sale_order_line_remove](sale_order_line_remove/) | 15.0.1.0.0 |  | Allows removal of sale order lines from confirmed orders if not invoiced or received
