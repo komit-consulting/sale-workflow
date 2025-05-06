@@ -4,7 +4,7 @@ from odoo.tests.common import TransactionCase
 
 class TestCrmTeamInvoiced(TransactionCase):
     def setUp(self):
-        super(TestCrmTeamInvoiced, self).setUp()
+        super().setUp()
         self.team = self.env["crm.team"].create({"name": "Test Team"})
         self.team2 = self.env["crm.team"].create({"name": "Test Team 2"})
         self.partner_id = self.env["res.partner"].create({"name": "Test Partner"})
