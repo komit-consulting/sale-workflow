@@ -7,25 +7,27 @@ from odoo.osv import expression
 class CrmTeam(models.Model):
     _inherit = "crm.team"
 
+    def _prepare_invoice_domain(self):
+        today = fields.Date.context_today(self.env.user)
+        return [
+            ("move_type", "in", ["out_invoice", "out_refund", "out_receipt"]),
+            ("team_id", "in", self.ids),
+            ("date", ">=", today.replace(day=1)),
+            ("date", "<=", today),
+        ]
+
     def _compute_invoiced(self):
         if not self:
             return
-
-        sales_team_invoiced_domain = self.env.company.sales_team_invoiced_domain
-        if not sales_team_invoiced_domain:
+        domain_list = ast.literal_eval(self.env.company.sales_team_invoiced_domain)
+        if not domain_list:
             return super()._compute_invoiced()
-        today = fields.Date.today()
-        invoiced_domain = [
-            ("move_type", "in", ["out_invoice", "out_refund", "out_receipt"]),
-            ("team_id", "in", self.ids),
-            ("date", ">=", fields.Date.to_string(today.replace(day=1))),
-            ("date", "<=", fields.Date.to_string(today)),
-        ]
-        domain_list = ast.literal_eval(sales_team_invoiced_domain)
-        invoiced_domain = expression.AND([invoiced_domain, domain_list])
+        invoiced_domain = expression.AND([self._prepare_invoice_domain(), domain_list])
+        team_data = self.env["account.move"]._read_group(
+            invoiced_domain,
+            groupby=["team_id"],
+            aggregates=["amount_untaxed_signed:sum"],
+        )
+        team_dict = dict(team_data)
         for team in self:
-            team.invoiced = 0.0
-            moves = self.env["account.move"].search(invoiced_domain)
-            for move in moves:
-                if move.team_id == team:
-                    team.invoiced += move.amount_untaxed_signed
+            team.invoiced = team_dict.get(team) or 0.0
