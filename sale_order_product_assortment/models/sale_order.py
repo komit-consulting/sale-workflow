@@ -13,7 +13,10 @@ class SaleOrder(models.Model):
         string="Allowed Products",
         compute="_compute_product_assortment_ids",
     )
-    has_allowed_products = fields.Boolean(compute="_compute_product_assortment_ids")
+    has_allowed_products = fields.Boolean(
+        compute="_compute_product_assortment_ids",
+        compute_sudo=True,
+    )
 
     @api.depends("partner_id", "partner_shipping_id", "partner_invoice_id")
     def _compute_product_assortment_ids(self):
