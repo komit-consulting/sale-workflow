@@ -40,6 +40,7 @@ addon | version | maintainers | summary
 [sale_fixed_discount](sale_fixed_discount/) | 17.0.2.1.0 |  | Allows to apply fixed amount discounts in sales orders.
 [sale_force_invoiced](sale_force_invoiced/) | 17.0.1.1.1 |  | Allows to force the invoice status of the sales order to Invoiced
 [sale_force_whole_invoiceability](sale_force_whole_invoiceability/) | 17.0.1.0.0 |  | Sale Force Whole Invoiceability
+[sale_global_discount](sale_global_discount/) | 17.0.1.0.0 |  | Sale Global Discount
 [sale_invoice_policy](sale_invoice_policy/) | 17.0.1.0.0 |  | Sales Management: let the user choose the invoice policy on the order
 [sale_manual_delivery](sale_manual_delivery/) | 17.0.1.0.0 |  | Create manually your deliveries
 [sale_multi_template_application](sale_multi_template_application/) | 17.0.1.0.0 |  | Sale multi template application
