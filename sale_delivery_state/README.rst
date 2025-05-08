@@ -40,6 +40,12 @@ nothing more to deliver.
 Sale order lines can have products or services, as long as the field `qty_delivered`
 is set, it will trigger the computation of delivery state.
 
+Sale order lines with the Skip Delivery State field set to True will be ignored when
+computing the delivery state. This field is automatically set depending on the field
+Sales > Configuration > Quotations & Orders > Skip Service products for Sale Delivery
+State. If set to True, the field Skip Delivery State in sale order lines containing
+service products will be automatically set to True, but it can manually changed.
+
 This module also works with delivery.carrier fees that are added as a
 sale order line. Thoses line are special as they will never be considered delivered.
 Delivery fees lines are ignored in the computation of the delivery state.
@@ -52,6 +58,12 @@ of the delivery status field from 'sale_stock'.
 
 .. contents::
    :local:
+
+Configuration
+=============
+
+#. Go to *Sales > Configuration > Quotations & Orders*.
+#. Check the Skip Service products for Sale Delivery State checkbox to automatically set the field Skip Delivery State in sale order lines to True when the line contains a service product.
 
 Bug Tracker
 ===========
@@ -80,6 +92,7 @@ Contributors
 * Daniel Reis <dreis@opensourceintegrators.com>,
   `Open Source Integrators <https://opensourceintegrators.com>`_
 * Carlos Lopez <celm1990@gmail.com>
+* Manuel Regidor <manuel.regidor@sygel.es>
 
 Maintainers
 ~~~~~~~~~~~
