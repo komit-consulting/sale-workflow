@@ -120,6 +120,7 @@ setuptools.setup(
         'odoo14-addon-sale_product_set',
         'odoo14-addon-sale_product_set_packaging_qty',
         'odoo14-addon-sale_product_set_sale_by_packaging',
+        'odoo14-addon-sale_production_state',
         'odoo14-addon-sale_promotion_rule',
         'odoo14-addon-sale_promotion_rule_assortment',
         'odoo14-addon-sale_promotion_rule_delivery',

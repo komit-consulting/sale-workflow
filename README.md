@@ -133,6 +133,7 @@ addon | version | maintainers | summary
 [sale_product_set](sale_product_set/) | 14.0.1.6.0 |  | Sale product set
 [sale_product_set_packaging_qty](sale_product_set_packaging_qty/) | 14.0.1.1.0 |  | Manage packaging and quantities on product set lines
 [sale_product_set_sale_by_packaging](sale_product_set_sale_by_packaging/) | 14.0.1.0.2 |  | Glue module between `sale_by_packaging` and `sale_product_set_packaging_qty`.
+[sale_production_state](sale_production_state/) | 14.0.1.0.1 |  | Show the production state on the sale order
 [sale_promotion_rule](sale_promotion_rule/) | 14.0.1.0.1 |  | Module to manage promotion rule on sale order
 [sale_promotion_rule_assortment](sale_promotion_rule_assortment/) | 14.0.1.0.0 |  | This addon allows to reduce the appliance of a promotion rule to a set of products
 [sale_promotion_rule_delivery](sale_promotion_rule_delivery/) | 14.0.1.0.0 |  | Manage promotion rule with delivery
