@@ -1,4 +1,4 @@
-from odoo import _, api, fields, models
+from odoo import api, fields, models
 from odoo.exceptions import UserError, ValidationError
 from odoo.tools.float_utils import float_compare, float_round
 
@@ -15,7 +15,12 @@ class SaleInvoicePlan(models.Model):
         readonly=True,
         ondelete="cascade",
     )
-    analytic_account_id = fields.Many2one(related="sale_id.analytic_account_id")
+    distribution_analytic_account_ids = fields.Many2many(
+        "account.analytic.account",
+        compute="_compute_distribution_analytic_account_ids",
+        string="Distribution Analytic Accounts",
+        store=True,
+    )
     partner_id = fields.Many2one(
         comodel_name="res.partner",
         string="Customer",
@@ -92,10 +97,19 @@ class SaleInvoicePlan(models.Model):
         for rec in self:
             rec.no_edit = rec._no_edit()
 
+    @api.depends("sale_id.order_line.distribution_analytic_account_ids")
+    def _compute_distribution_analytic_account_ids(self):
+        for plan in self:
+            plan.distribution_analytic_account_ids = plan.sale_id.order_line.mapped(
+                "distribution_analytic_account_ids"
+            )
+
     @api.depends("percent")
     def _compute_amount(self):
         for rec in self:
             amount_untaxed = rec.sale_id._origin.amount_untaxed
+            if not amount_untaxed:
+                continue
             # With invoice already created, no recompute
             if rec.invoiced:
                 rec.amount = rec.amount_invoiced
@@ -104,7 +118,7 @@ class SaleInvoicePlan(models.Model):
             # For last line, amount is the left over
             if rec.last:
                 installments = rec.sale_id.invoice_plan_ids.filtered(
-                    lambda l: l.invoice_type == "installment"
+                    lambda plan: plan.invoice_type == "installment"
                 )
                 prev_amount = sum((installments - rec).mapped("amount"))
                 rec.amount = amount_untaxed - prev_amount
@@ -117,7 +131,7 @@ class SaleInvoicePlan(models.Model):
             if rec.sale_id.amount_untaxed != 0:
                 if rec.last:
                     installments = rec.sale_id.invoice_plan_ids.filtered(
-                        lambda l: l.invoice_type == "installment"
+                        lambda invoice_plan: invoice_plan.invoice_type == "installment"
                     )
                     prev_percent = sum((installments - rec).mapped("percent"))
                     rec.percent = 100 - prev_percent
@@ -140,31 +154,26 @@ class SaleInvoicePlan(models.Model):
                 break
 
     def _get_amount_invoice(self, invoices):
-        """Hook function"""
+        """Get invoice amount from same order"""
         amount_invoiced = sum(invoices.mapped("amount_untaxed"))
-        deposit_product_id = (
-            self.env["ir.config_parameter"]
-            .sudo()
-            .get_param("sale.default_deposit_product_id")
+        lines = invoices.mapped("invoice_line_ids").filtered(
+            lambda ml: ml.product_id.id
+            and self.sale_id in ml.sale_line_ids.mapped("order_id")
         )
-        if deposit_product_id:
-            lines = invoices.mapped("invoice_line_ids").filtered(
-                lambda l: l.product_id.id != int(deposit_product_id)
-            )
-            amount_invoiced = sum(lines.mapped("price_subtotal"))
+        amount_invoiced = sum(lines.mapped("price_subtotal"))
         return amount_invoiced
 
     @api.depends("invoice_move_ids.state")
     def _compute_invoiced(self):
         for rec in self:
             invoiced = rec.invoice_move_ids.filtered(
-                lambda l: l.state in ("draft", "posted")
+                lambda move_line: move_line.state in ("draft", "posted")
             )
             rec.invoiced = True if invoiced else False
             rec.amount_invoiced = (
                 sum(invoiced.mapped("amount_untaxed"))
                 if rec.invoice_type == "advance"
-                else rec._get_amount_invoice(invoiced[:1])
+                else rec._get_amount_invoice(invoiced)
             )
 
     def _compute_last(self):
@@ -178,7 +187,9 @@ class SaleInvoicePlan(models.Model):
             return
         percent = self.percent
         move = invoice_move.with_context(check_move_validity=False)
-        for line in move.invoice_line_ids:
+        for line in move.invoice_line_ids.filtered(
+            lambda line: line.display_type not in ("line_section", "line_note")
+        ):
             self._update_new_quantity(line, percent)
         move.line_ids.filtered(
             lambda x: x.display_type
@@ -188,7 +199,7 @@ class SaleInvoicePlan(models.Model):
     def _update_new_quantity(self, line, percent):
         """Hook function"""
         if not len(line.sale_line_ids) >= 0:
-            raise UserError(_("No matched order line for invoice line"))
+            raise UserError(self.env._("No matched order line for invoice line"))
         order_line = fields.first(line.sale_line_ids)
         if order_line.is_downpayment:  # based on 1 unit
             line.write({"quantity": -percent / 100})
@@ -197,9 +208,14 @@ class SaleInvoicePlan(models.Model):
             prec = order_line.product_uom.rounding
             if plan_qty:
                 plan_qty = float_round(plan_qty, precision_rounding=prec)
-            if float_compare(abs(plan_qty), abs(line.quantity), prec) == 1:
+            if (
+                float_compare(
+                    abs(plan_qty), abs(line.quantity), precision_rounding=prec
+                )
+                == 1
+            ):
                 raise ValidationError(
-                    _(
+                    self.env._(
                         "Plan quantity: %(plan_qty)s, exceed invoiceable quantity: "
                         "%(invoiceable_qty)s"
                         "\nProduct should be delivered before invoice"
@@ -218,7 +234,7 @@ class SaleInvoicePlan(models.Model):
         if lines:
             installments = [str(x) for x in lines.mapped("installment")]
             raise UserError(
-                _(
+                self.env._(
                     "Installment %s: already used and not allowed to delete.\n"
                     "Please discard changes."
                 )

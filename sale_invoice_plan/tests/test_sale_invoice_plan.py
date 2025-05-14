@@ -2,7 +2,7 @@
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl)
 import logging
 
-from odoo import _, fields
+from odoo import fields
 from odoo.exceptions import UserError, ValidationError
 from odoo.tests import Form, tagged
 
@@ -85,7 +85,9 @@ class TestSaleInvoicePlan(common.TestSaleCommon):
                         },
                     )
                 ],
-                "pricelist_id": cls.env.ref("product.list0").id,
+                "pricelist_id": cls.env["product.pricelist"]
+                .browse(cls.env.context.get("pricelist"))
+                .id,
             }
         )
 
@@ -124,22 +126,6 @@ class TestSaleInvoicePlan(common.TestSaleCommon):
                 "categ_id": cls.product_category.id,
             }
         )
-        # Advance Product
-        deposit_account = cls.env["account.account"].search(
-            [("internal_group", "=", "income"), ("deprecated", "=", False)], limit=1
-        )
-        cls.product_advance = cls.env["product.product"].create(
-            {
-                "name": _("Down payment"),
-                "type": "service",
-                "invoice_policy": "order",
-                "property_account_income_id": deposit_account.id,
-                "taxes_id": False,
-            }
-        )
-        cls.env["ir.config_parameter"].sudo().set_param(
-            "sale.default_deposit_product_id", cls.product_advance.id
-        )
 
     def test_00_invoice_plan(self):
         # To create next invoice from SO
@@ -152,7 +138,9 @@ class TestSaleInvoicePlan(common.TestSaleCommon):
         try:  # UserError if no installment
             plan = f.save()
         except ValidationError as e:
-            _logger.info(_("No installment raises following error : %s"), e.args[0])
+            _logger.info(
+                self.env._("No installment raises following error : %s"), e.args[0]
+            )
         # Create Invoice Plan 3 installment
         num_installment = 5
         f.num_installment = num_installment
@@ -241,7 +229,7 @@ class TestSaleInvoicePlan(common.TestSaleCommon):
         with self.assertRaises(ValidationError):
             self.so_service.action_confirm()
         advance_line = self.so_service.invoice_plan_ids.filtered(
-            lambda l: l.invoice_type == "advance"
+            lambda invoice_plan: invoice_plan.invoice_type == "advance"
         )
         self.assertEqual(len(advance_line), 1, "No one advance line")
         # Add 10% to advance
@@ -259,7 +247,9 @@ class TestSaleInvoicePlan(common.TestSaleCommon):
         # Valid total quantity of invoices (exclude Advance line)
         quantity = sum(
             invoices.mapped("invoice_line_ids")
-            .filtered(lambda l: l.product_id == self.product_order)
+            .filtered(
+                lambda invoice_line: invoice_line.product_id == self.product_order
+            )
             .mapped("quantity")
         )
         self.assertEqual(quantity, 1, "Wrong number of total invoice quantity")
@@ -323,7 +313,8 @@ class TestSaleInvoicePlan(common.TestSaleCommon):
                 ],
             }
         )
-        # Overall amount changed to 3080, install amount not changed, only percent changed.
+        # Overall amount changed to 3080, install amount not changed,
+        # only percent changed.
         self.assertEqual(self.so_service.amount_total, 3080.0)
         self.so_service.invoice_plan_ids._compute_amount()
         self.assertEqual(first_install.amount, 280.0)
