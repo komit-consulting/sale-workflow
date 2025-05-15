@@ -46,6 +46,7 @@ setuptools.setup(
         'odoo-addon-sale_order_amount_to_invoice>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_archive>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_carrier_auto_assign>=16.0dev,<16.1dev',
+        'odoo-addon-sale_order_country_allowed_product>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_currency_rate>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_general_discount>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_general_discount_triple>=16.0dev,<16.1dev',
