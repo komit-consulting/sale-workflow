@@ -4,7 +4,7 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 15.0\n"
+"Project-Id-Version: Odoo Server 17.0\n"
 "Report-Msgid-Bugs-To: \n"
 "Last-Translator: \n"
 "Language-Team: \n"
@@ -25,13 +25,7 @@ msgstr ""
 
 #. module: sales_team_invoiced_target_domain
 #: model_terms:ir.ui.view,arch_db:sales_team_invoiced_target_domain.sale_team_invoiced_config_settings_form_view
-msgid ""
-"Define the domain for calculating the invoiced amount for Sales teams.`"
-msgstr ""
-
-#. module: sales_team_invoiced_target_domain
-#: model_terms:ir.ui.view,arch_db:sales_team_invoiced_target_domain.sale_team_invoiced_config_settings_form_view
-msgid "Invoiced Domain"
+msgid "Define the domain for calculating the invoiced amount for Sales teams."
 msgstr ""
 
 #. module: sales_team_invoiced_target_domain
