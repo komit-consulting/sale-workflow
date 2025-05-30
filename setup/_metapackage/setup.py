@@ -41,6 +41,7 @@ setuptools.setup(
         'odoo-addon-sale_last_price_info>=16.0dev,<16.1dev',
         'odoo-addon-sale_loyalty_exclude>=16.0dev,<16.1dev',
         'odoo-addon-sale_manual_delivery>=16.0dev,<16.1dev',
+        'odoo-addon-sale_margin_update>=16.0dev,<16.1dev',
         'odoo-addon-sale_mrp_bom>=16.0dev,<16.1dev',
         'odoo-addon-sale_numeric_step>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_amount_to_invoice>=16.0dev,<16.1dev',
