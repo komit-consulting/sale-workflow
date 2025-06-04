@@ -68,6 +68,7 @@ addon | version | maintainers | summary
 [sale_partner_address_restrict](sale_partner_address_restrict/) | 17.0.1.1.0 |  | Restrict addresses domain in the sales order form taking into account the partner selected
 [sale_partner_incoterm](sale_partner_incoterm/) | 17.0.1.0.0 |  | Set the customer preferred incoterm on each sales order
 [sale_partner_selectable_option](sale_partner_selectable_option/) | 17.0.1.0.0 | <a href='https://github.com/victoralmau'><img src='https://github.com/victoralmau.png' width='32' height='32' style='border-radius:50%;' alt='victoralmau'/></a> | Sale Partner Selectable Option
+[sale_partner_utm_source](sale_partner_utm_source/) | 17.0.1.0.0 |  | This module adds the use of utm source in sales
 [sale_pricelist_global_rule](sale_pricelist_global_rule/) | 17.0.1.0.0 |  | Apply a global rule to all sale order
 [sale_procurement_group_by_line](sale_procurement_group_by_line/) | 17.0.1.0.1 |  | Base module for multiple procurement group by Sale order
 [sale_product_multi_add](sale_product_multi_add/) | 17.0.1.0.1 |  | Sale Product Multi Add
