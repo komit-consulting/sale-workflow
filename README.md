@@ -66,14 +66,14 @@ addon | version | maintainers | summary
 [sale_stock_picking_blocking](sale_stock_picking_blocking/) | 11.0.1.0.0 |  | Allow you to block the creation of deliveries from a sale order.
 [sale_stock_picking_blocking_proc_group_by_line](sale_stock_picking_blocking_proc_group_by_line/) | 11.0.1.0.1 |  | Module that allows module sale_stock_picking_blocking to work with sale_procurement_group_by_line
 [sale_stock_picking_note](sale_stock_picking_note/) | 11.0.1.0.0 |  | Add picking note in sale and purchase order
-[sale_stock_return_request](sale_stock_return_request/) | 11.0.1.0.1 | [![chienandalu](https://github.com/chienandalu.png?size=30px)](https://github.com/chienandalu) | Sale Stock Return Request
+[sale_stock_return_request](sale_stock_return_request/) | 11.0.1.0.1 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> | Sale Stock Return Request
 [sale_stock_secondary_unit](sale_stock_secondary_unit/) | 11.0.1.0.1 |  | Get product quantities in a secondary unit
 [sale_stock_sourcing_address](sale_stock_sourcing_address/) | 11.0.1.0.1 |  | Sale Stock Sourcing Address
 [sale_timesheet_lock_invoiced](sale_timesheet_lock_invoiced/) | 11.0.1.0.1 |  | Forbid to update a timesheet line if it has been invoiced.
 [sale_timesheet_project_link](sale_timesheet_project_link/) | 11.0.1.0.1 |  | Simply adds a button on the sale order to be redirected on the linked projects
 [sale_timesheet_project_manual](sale_timesheet_project_manual/) | 11.0.1.0.1 |  | Allows to create the project/tasks before the sale confirmation
 [sale_validity](sale_validity/) | 11.0.1.0.0 |  | Set a default validity delay on quotations
-[sales_team_security](sales_team_security/) | 11.0.1.0.0 | [![pedrobaeza](https://github.com/pedrobaeza.png?size=30px)](https://github.com/pedrobaeza) | New group for seeing only sales channel's documents
+[sales_team_security](sales_team_security/) | 11.0.1.0.0 | <a href='https://github.com/pedrobaeza'><img src='https://github.com/pedrobaeza.png' width='32' height='32' style='border-radius:50%;' alt='pedrobaeza'/></a> | New group for seeing only sales channel's documents
 
 [//]: # (end addons)
 
