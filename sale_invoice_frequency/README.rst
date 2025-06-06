@@ -60,8 +60,8 @@ To use this module, you need to:
 Known issues / Roadmap
 ======================
 
--  Add an automation to auto-invoice orders. Now must be done grouping
-   orders by invoicing frequency and invoice them manually.
+- Add an automation to auto-invoice orders. Now must be done grouping
+  orders by invoicing frequency and invoice them manually.
 
 Bug Tracker
 ===========
@@ -84,8 +84,8 @@ Authors
 Contributors
 ------------
 
--  Eduardo de Miguel (`Moduon <https://www.moduon.team/>`__)
--  Rafael Blasco (`Moduon <https://www.moduon.team/>`__)
+- Eduardo de Miguel (`Moduon <https://www.moduon.team/>`__)
+- Rafael Blasco (`Moduon <https://www.moduon.team/>`__)
 
 Maintainers
 -----------
