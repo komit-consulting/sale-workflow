@@ -6,11 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-06-05 10:27+0000\n"
-"PO-Revision-Date: 2024-06-05 10:27+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
-"Language: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
@@ -19,45 +16,45 @@ msgstr ""
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__begin_date
 msgid "Begin Date"
-msgstr "Date de début"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model_terms:ir.ui.view,arch_db:sale_order_recurrence.view_sale_order_recurrence_wizard_form
 msgid "Cancel"
-msgstr "Annuler"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__create_uid
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard_date_line__create_uid
 msgid "Created by"
-msgstr "Créé par"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__create_date
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard_date_line__create_date
 msgid "Created on"
-msgstr "Créé le"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard_date_line__commitment_date
 msgid "Delivery Date"
-msgstr "Date de livraison"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__display_name
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard_date_line__display_name
 msgid "Display Name"
-msgstr "Nom affiché"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model_terms:ir.ui.view,arch_db:sale_order_recurrence.view_sale_order_recurrence_wizard_form
 msgid "Duplicate"
-msgstr "Dupliquer"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model_terms:ir.ui.view,arch_db:sale_order_recurrence.view_sale_order_recurrence_wizard_form
 msgid "Duplicate and Open"
-msgstr "Dupliquer et ouvrir"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__id
@@ -68,40 +65,40 @@ msgstr ""
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__include_current_date
 msgid "Include Current Date"
-msgstr "Inclure la date courante"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard____last_update
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard_date_line____last_update
 msgid "Last Modified on"
-msgstr "Dernière modification le"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__write_uid
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard_date_line__write_uid
 msgid "Last Updated by"
-msgstr "Dernière mise à jour par"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__write_date
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard_date_line__write_date
 msgid "Last Updated on"
-msgstr "Dernière mise à jour le"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields.selection,name:sale_order_recurrence.selection__sale_order_recurrence_wizard__recurrence_type__month
 msgid "Monthly"
-msgstr "Mensuelle"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__date_line_ids
 msgid "New Dates"
-msgstr "Nouvelles Dates"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__partner_id
 msgid "Partner"
-msgstr "Partenaire"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__recurrence_duration
@@ -121,43 +118,34 @@ msgstr ""
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard__order_id
 msgid "Sale Order"
-msgstr "Commande de vente"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model,name:sale_order_recurrence.model_sale_order_recurrence_wizard
 msgid "Sale Order Duplication Wizard"
-msgstr "sale.order.recurrence.wizard"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model,name:sale_order_recurrence.model_sale_order_recurrence_wizard_date_line
 msgid "Sale Order Duplication Wizard Line"
-msgstr "sale.order.recurrence.wizard.date.line"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model_terms:ir.ui.view,arch_db:sale_order_recurrence.view_sale_order_recurrence_wizard_form
 msgid "Sale to duplicate"
-msgstr "Vente à dupliquer"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model_terms:ir.ui.view,arch_db:sale_order_recurrence.view_sale_order_recurrence_wizard_form
 msgid "Settings"
-msgstr "Configuration"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields.selection,name:sale_order_recurrence.selection__sale_order_recurrence_wizard__recurrence_type__week
 msgid "Weekly"
-msgstr "Hebdomadaire"
+msgstr ""
 
 #. module: sale_order_recurrence
 #: model:ir.model.fields,field_description:sale_order_recurrence.field_sale_order_recurrence_wizard_date_line__wizard_id
 msgid "Wizard"
-msgstr "Assistant"
-
-#~ msgid "Duplication Duration"
-#~ msgstr "Durée de la recurrence"
-
-#~ msgid "Duplication Type"
-#~ msgstr "Type de recurrence"
-
-#~ msgid "Duplication Wizard"
-#~ msgstr "Assistant de recurrence"
+msgstr ""
