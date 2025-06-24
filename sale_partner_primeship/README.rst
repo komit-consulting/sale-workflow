@@ -28,13 +28,25 @@ Sale Partner Primeship
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module adds a concept of primeship for partners. A primeship is
-basically a simple membership very easy to use. This primeship is
-activated on the confirmation of a sale containing a primeship
-activation product for a customizable duration expressed in months. It
-is automatically deactivated when the duration expires. You can then
-check if the primeship is active for a particular customer and take
-actions based on it.
+This module introduces a membership concept called "primeship" for
+partners.
+
+Primeship functions as a straightforward, user-friendly membership
+system that activates automatically when a sale order containing a
+primeship activation product is confirmed. The membership duration is
+customizable and defined in months.
+
+The system automatically deactivates the primeship when the specified
+duration expires. Users can easily verify a customer's active primeship
+status and implement conditional actions based on this membership state.
+
+Key features:
+
+- Simple membership management for partners
+- Automatic activation through sales orders
+- Configurable duration in months
+- Automatic expiration handling
+- Easy status verification for conditional business logic
 
 **Table of contents**
 
@@ -44,22 +56,28 @@ actions based on it.
 Usage
 =====
 
-To make a product that activates primeship on sale order, you have to
-edit it, set its type to service and go to the product form Sales tab
-and tick the Activates primeship checkbox:
+To configure a product that activates primeship upon sale order
+confirmation:
+
+- Edit the desired product and set its type to "Service"
+- Navigate to the "Sales" tab in the product form
+- Enable the "Activates primeship" checkbox
+- Define the primeship duration (in months)
 
 |image1|
 
-You can then set a primeship duration.
-
-You can see current primeship availability for a customer:
+You can easily view a customer's current primeship status directly from
+their partner record:
 
 |image2|
 
-And a click on the widget will get you to the primeship list view for
-this customer:
+Clicking on the primeship status widget will redirect you to a detailed
+list view showing all primeship records for that specific customer:
 
 |image3|
+
+This interface allows you to track membership history, expiration dates,
+and manage customer primeship records efficiently.
 
 .. |image1| image:: https://raw.githubusercontent.com/OCA/sale-workflow/18.0/sale_partner_primeship/static/description/primeship-product.png
 .. |image2| image:: https://raw.githubusercontent.com/OCA/sale-workflow/18.0/sale_partner_primeship/static/description/partner-with-primeship.png
