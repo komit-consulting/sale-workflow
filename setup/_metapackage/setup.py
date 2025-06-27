@@ -90,6 +90,7 @@ setuptools.setup(
         'odoo-addon-sale_order_search_line>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_tag>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_type>=16.0dev,<16.1dev',
+        'odoo-addon-sale_order_warehouse_location>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_warn_message>=16.0dev,<16.1dev',
         'odoo-addon-sale_packaging_default>=16.0dev,<16.1dev',
         'odoo-addon-sale_partner_incoterm>=16.0dev,<16.1dev',
