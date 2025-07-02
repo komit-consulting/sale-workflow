@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ===============================
 Sale order safe commitment date
 ===============================
@@ -17,7 +13,7 @@ Sale order safe commitment date
 .. |badge1| image:: https://img.shields.io/badge/maturity-Alpha-red.png
     :target: https://odoo-community.org/page/development-status
     :alt: Alpha
-.. |badge2| image:: https://img.shields.io/badge/license-LGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-LGPL--3-blue.png
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--workflow-lightgray.png?logo=github
@@ -73,8 +69,8 @@ To test the module:
   date possible to promise the delivery.
 - Additionally, a warning alert will be shown on the top side of the
   order advising the salesman to fix that issue.
-- If the salesman ignores it, the delivery date will be removed when the
-  order gets confirmed to respect the minimum expected date.
+- If the salesman ignores it, the delivery date will be set to the
+  minimum expected date when the order gets confirmed.
 
 Known issues / Roadmap
 ======================
