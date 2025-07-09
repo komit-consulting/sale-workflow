@@ -30,6 +30,12 @@ class TestSaleException(TransactionCase):
 
         cls.holiday_date = holiday_date
         cls.holiday_1 = holiday_1
+        cls.public_pricelist = cls.env["product.pricelist"].create(
+            {
+                "name": "Test Public Pricelist",
+                "sequence": 1,
+            }
+        )
 
     def test_sale_order_exception(self):
         self.sale_exception_confirm = self.env["sale.exception.confirm"]
@@ -57,7 +63,7 @@ class TestSaleException(TransactionCase):
                         },
                     )
                 ],
-                "pricelist_id": self.env.ref("product.list0").id,
+                "pricelist_id": self.public_pricelist.id,
             }
         )
         # Update freely without error
