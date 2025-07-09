@@ -1,19 +1,17 @@
 # Copyright 2022-today Commown SCIC (https://commown.coop)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo import api, models
+from odoo import models
 
 
 class SaleOrder(models.Model):
     _inherit = "sale.order"
 
-    @api.multi
     def action_confirm(self):
         res = super().action_confirm()
         self.send_sold_products_mail()
         return res
 
-    @api.multi
     def send_sold_products_mail(self):
         for order in self:
             for line in order.order_line:

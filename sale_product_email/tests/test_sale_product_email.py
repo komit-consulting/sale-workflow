@@ -1,10 +1,10 @@
 # Copyright 2022-today Commown SCIC (https://commown.coop)
 # License AGPL-3.0 or later (http://www.gnu.org/licenses/agpl).
 
-from odoo.tests.common import SavepointCase
+from odoo.tests.common import TransactionCase
 
 
-class TestSaleProductEmail(SavepointCase):
+class TestSaleProductEmail(TransactionCase):
 
     test_email_subject = "Test product email template"
 

@@ -1,3 +1,7 @@
+.. image:: https://odoo-community.org/readme-banner-image
+   :target: https://odoo-community.org/get-involved?utm_source=readme
+   :alt: Odoo Community Association
+
 ==================
 Sale product email
 ==================
@@ -13,7 +17,7 @@ Sale product email
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--workflow-lightgray.png?logo=github
@@ -28,13 +32,31 @@ Sale product email
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
 
-This module adds an optional email model to products that will be sent
-to the buyer when a sale is confirmed.
+This module adds an optional email template to products.
+When a sale is confirmed, a single mail will be sent for each product with the mail template set in the 'Sale confirmation email' (`sale_confirmation_mail_template_id`) field.
+
+This module differs from `product_email_template`, as it sends a mail when an invoice is posted, whereas this module sends a mail when a sale order is confirmed.
+As such, depending on your workflow, you may pick either module for the email timing you require.
+For instance, if a sale order leads to a contract which generates invoices recurrently, you may prefer to only send a mail when the sale order is confirmed.
 
 **Table of contents**
 
 .. contents::
    :local:
+
+Usage
+=====
+
+How to use this module : 
+
+1. Create an Email template for the Sale Order (`sale.order`) model.
+2. Edit a product, then go into the 'Sales' notebook tab.
+3. In the 'Sale confirmation email' field, select your newly created email template.
+
+Afterwards, when this product is present in a confirmed sale, a mail based on the configured template will be sent.
+
+.. image:: https://raw.githubusercontent.com/sale_product_email/static/description/mail_template_select.png
+    :alt: Mail template selection on a Product
 
 Bug Tracker
 ===========
