@@ -5,12 +5,13 @@ from odoo import api, models
 
 
 class SaleOrder(models.Model):
-    _inherit = 'sale.order'
+    _inherit = "sale.order"
 
     @api.multi
     def action_confirm(self):
-        super().action_confirm()
+        res = super().action_confirm()
         self.send_sold_products_mail()
+        return res
 
     @api.multi
     def send_sold_products_mail(self):
@@ -21,7 +22,7 @@ class SaleOrder(models.Model):
                 if mail_template:
                     order.with_context(
                         product_tmpl=product_tmpl,
-                        default_composition_mode='comment',
+                        default_composition_mode="comment",
                         default_partner_ids=order.partner_id.ids,
-                        custom_layout='sale.email_template_edi_sale',
+                        custom_layout="sale.email_template_edi_sale",
                     ).message_post_with_template(mail_template.id)
