@@ -26,6 +26,7 @@
         "reports/report_base.xml",
         "reports/report_deliveryslip.xml",
         "reports/report_picking_operations.xml",
+        "views/product_category_views.xml",
     ],
     "pre_init_hook": "pre_init_hook",
     "maintainers": ["CarlosRoca13", "rafaelbn", "sergio-teruel", "yajo"],
