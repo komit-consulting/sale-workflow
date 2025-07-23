@@ -34,7 +34,8 @@ class AccountMove(models.Model):
                 continue
 
             payment_lines = all_payment_lines.filtered(
-                lambda x: x.move_id.id in payment_move_ids
+                lambda x, payment_move_ids=payment_move_ids: x.move_id.id
+                in payment_move_ids
             )
 
             for line in payment_lines:
