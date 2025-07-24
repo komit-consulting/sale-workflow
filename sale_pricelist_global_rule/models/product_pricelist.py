@@ -9,7 +9,10 @@ class ProductPricelistItem(models.Model):
         selection_add=[
             ("3_1_global_product_template", "Global - Product template"),
             ("3_2_global_product_category", "Global - Product category"),
-            ("3_3_global_product_ancestor_category", "Global - Ancestor Product Category"),
+            (
+                "3_3_global_product_ancestor_category",
+                "Global - Ancestor Product Category"
+            ),
         ],
         ondelete={
             "3_1_global_product_template": "set default",
@@ -66,10 +69,12 @@ class ProductPricelistItem(models.Model):
                 item.applied_on == "3_3_global_product_ancestor_category"
                 and not item.ancestor_product_category_id
             ):
-                raise ValidationError(_(
+                raise ValidationError(
+                    _(
                     "Please specify the product ancestor category for which this global"
                     " rule should be applied"
-                ))
+                    )
+                )
         return res
 
     @api.depends(
@@ -108,7 +113,8 @@ class ProductPricelistItem(models.Model):
                 and item.applied_on == "3_3_global_product_ancestor_category"
             ):
                 item.name = _("Ancestor product category: %s") % (
-                    item.ancestor_product_category_id.display_name)
+                    item.ancestor_product_category_id.display_name
+                )
         return res
 
     @api.model_create_multi
@@ -138,13 +144,15 @@ class ProductPricelistItem(models.Model):
                         }
                     )
                 elif applied_on == "3_3_global_product_ancestor_category":
-                    values.update({
+                    values.update(
+                        {
                         "product_id": None,
                         "product_tmpl_id": None,
                         "categ_id": None,
                         "global_categ_id": None,
                         "global_product_tmpl_id": None,
-                    })
+                        }
+                    )
         return super().create(vals_list)
 
     def write(self, values):
