@@ -11,7 +11,7 @@ class ProductPricelistItem(models.Model):
             ("3_2_global_product_category", "Global - Product category"),
             (
                 "3_3_global_product_ancestor_category",
-                "Global - Ancestor Product Category"
+                "Global - Ancestor Product Category",
             ),
         ],
         ondelete={
@@ -71,8 +71,8 @@ class ProductPricelistItem(models.Model):
             ):
                 raise ValidationError(
                     _(
-                    "Please specify the product ancestor category for which this global"
-                    " rule should be applied"
+                        "Please specify the product ancestor category for which this "
+                        "global rule should be applied"
                     )
                 )
         return res
@@ -146,11 +146,11 @@ class ProductPricelistItem(models.Model):
                 elif applied_on == "3_3_global_product_ancestor_category":
                     values.update(
                         {
-                        "product_id": None,
-                        "product_tmpl_id": None,
-                        "categ_id": None,
-                        "global_categ_id": None,
-                        "global_product_tmpl_id": None,
+                            "product_id": None,
+                            "product_tmpl_id": None,
+                            "categ_id": None,
+                            "global_categ_id": None,
+                            "global_product_tmpl_id": None,
                         }
                     )
         return super().create(vals_list)

@@ -27,7 +27,7 @@ class SaleOrderLine(models.Model):
             # Check if there are any global-ancestor-category rules applicable
             valid_items = []
             pricelist_items = line.order_id.pricelist_id.item_ids.filtered(
-                lambda rule: rule.applied_on == '3_3_global_product_ancestor_category'
+                lambda rule: rule.applied_on == "3_3_global_product_ancestor_category"
                 and rule.ancestor_product_category_id
             )
 
@@ -35,7 +35,7 @@ class SaleOrderLine(models.Model):
                 ancestor_product_categ = rule.ancestor_product_category_id
                 categories = set(
                     product_categ_env.search(
-                        [('id', 'child_of', ancestor_product_categ.id)]
+                        [("id", "child_of", ancestor_product_categ.id)]
                     ).ids
                 )
 
@@ -60,10 +60,10 @@ class SaleOrderLine(models.Model):
                 if (
                     not line.pricelist_item_id
                     or line.pricelist_item_id.applied_on
-                    == '3_3_global_product_ancestor_category'
+                    == "3_3_global_product_ancestor_category"
                     or (
                         best_rule.percent_price > line.pricelist_item_id.percent_price
                         and best_rule.applied_on
-                        == '3_3_global_product_ancestor_category'
+                        == "3_3_global_product_ancestor_category"
                 )):
                     line.pricelist_item_id = best_rule
