@@ -13,13 +13,14 @@ class SaleOrderLine(models.Model):
         # - Select the valid rule based on sequence (ASC) and discount (DESC).
         # Sale order data is cached per order to avoid redundant calculations.
         sale_data = {}
+        res = None
         product_categ_env = self.env["product.category"]
         for line in self:
             if line.order_id not in sale_data:
                 sale_data[line.order_id] = line.order_id._get_cummulative_quantity()
             qty_data = sale_data[line.order_id]
             # First run the normal pricelist logic
-            super(
+            res = super(
                 SaleOrderLine,
                 line.with_context(pricelist_global_cummulative_quantity=qty_data),
             )._compute_pricelist_item_id()
@@ -65,5 +66,7 @@ class SaleOrderLine(models.Model):
                         best_rule.percent_price > line.pricelist_item_id.percent_price
                         and best_rule.applied_on
                         == "3_3_global_product_ancestor_category"
-                )):
+                    )
+                ):
                     line.pricelist_item_id = best_rule
+        return res
