@@ -33,20 +33,20 @@ orders.
 
 A workflow can:
 
--  Apply default values:
+- Apply default values:
 
-   -  Shipping Policy (Deliver each product when available or Deliver
-      all products at once)
-   -  Set the invoice's date to the sale order's date
-   -  Set a sales team
+  - Shipping Policy (Deliver each product when available or Deliver all
+    products at once)
+  - Set the invoice's date to the sale order's date
+  - Set a sales team
 
--  Apply automatic actions:
+- Apply automatic actions:
 
-   -  Validate the order (only if paid, always, never)
-   -  Send order confirmation mail (only when order confirmed)
-   -  Create an invoice
-   -  Validate the invoice
-   -  Confirm the picking
+  - Validate the order (only if paid, always, never)
+  - Send order confirmation mail (only when order confirmed)
+  - Create an invoice
+  - Validate the invoice
+  - Confirm the picking
 
 This module is used by Magentoerpconnect and Prestashoperpconnect. It is
 well suited for other E-Commerce connectors as well.
@@ -79,26 +79,27 @@ Authors
 Contributors
 ------------
 
--  Guewen Baconnier
--  Beau Sebastien
--  Leonardo Pistone
--  Stéphane Bidoul
--  Damien Crier
--  Alexandre Fayolle
--  Sodexis
--  Dave Lasley <dave@laslabs.com>
--  Akim Juillerat <akim.juillerat@camptocamp.com>
--  Thomas Fossoul <thomas@niboo.com>
--  Phuc Tran Thanh <phuc@trobz.com>
--  Sander Lienaerts <sander.lienaerts@codeforward.nl>
--  Tri Doan <tridm@trobz.com>
+- Guewen Baconnier
+- Beau Sebastien
+- Leonardo Pistone
+- Stéphane Bidoul
+- Damien Crier
+- Alexandre Fayolle
+- Sodexis
+- Dave Lasley <dave@laslabs.com>
+- Akim Juillerat <akim.juillerat@camptocamp.com>
+- Thomas Fossoul <thomas@niboo.com>
+- Phuc Tran Thanh <phuc@trobz.com>
+- Sander Lienaerts <sander.lienaerts@codeforward.nl>
+- Tri Doan <tridm@trobz.com>
+- Kevin Khao <kevinkhao@gmail.com>
 
 Other credits
 -------------
 
 The development of this module has been financially supported by:
 
--  Camptocamp
+- Camptocamp
 
 Maintainers
 -----------
