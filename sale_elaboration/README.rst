@@ -1,7 +1,3 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
 ================
 Sale Elaboration
 ================
@@ -17,7 +13,7 @@ Sale Elaboration
 .. |badge1| image:: https://img.shields.io/badge/maturity-Production%2FStable-green.png
     :target: https://odoo-community.org/page/development-status
     :alt: Production/Stable
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--workflow-lightgray.png?logo=github
@@ -74,6 +70,15 @@ To configure this module you need to:
 
 You can define elaboration profiles to limit the elaborations that can
 be selected for each product.
+
+To set the profile globally for a product category:
+
+1. Go to *Inventory > Configuration > Product Categories* and choose
+   one.
+2. In the **Logistics** sections, you can set the desired **Elaboration
+   profile**.
+
+If you want to set an specific elaboration profile for a product:
 
 1. Go to *Sale > Configuration > Elaborations > Sale Elaboration
    Profile*.
