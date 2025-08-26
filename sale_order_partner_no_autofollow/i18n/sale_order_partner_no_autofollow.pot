@@ -15,7 +15,7 @@ msgstr ""
 
 #. module: sale_order_partner_no_autofollow
 #: model_terms:ir.ui.view,arch_db:sale_order_partner_no_autofollow.res_config_settings_view_form
-msgid "Auto follow"
+msgid "Auto Follow"
 msgstr ""
 
 #. module: sale_order_partner_no_autofollow
