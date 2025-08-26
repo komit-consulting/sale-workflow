@@ -30,7 +30,7 @@ addon | version | maintainers | summary
 [sale_attached_product](sale_attached_product/) | 17.0.1.0.0 | <a href='https://github.com/chienandalu'><img src='https://github.com/chienandalu.png' width='32' height='32' style='border-radius:50%;' alt='chienandalu'/></a> | Define products that will be added automatically when adding another in a sales order
 [sale_automatic_workflow](sale_automatic_workflow/) | 17.0.1.2.0 |  | Sale Automatic Workflow
 [sale_automatic_workflow_stock](sale_automatic_workflow_stock/) | 17.0.1.0.0 |  | Sale Automatic Workflow Stock
-[sale_blanket_order](sale_blanket_order/) | 17.0.1.1.2 |  | Blanket Orders
+[sale_blanket_order](sale_blanket_order/) | 17.0.1.1.3 |  | Blanket Orders
 [sale_cancel_reason](sale_cancel_reason/) | 17.0.1.0.0 |  | Sale Cancel Reason
 [sale_commercial_partner](sale_commercial_partner/) | 17.0.1.0.0 | <a href='https://github.com/alexis-via'><img src='https://github.com/alexis-via.png' width='32' height='32' style='border-radius:50%;' alt='alexis-via'/></a> | Add stored related field 'Commercial Entity' on sale orders
 [sale_delivery_split_date](sale_delivery_split_date/) | 17.0.1.0.0 |  | Sale Deliveries split by date
