@@ -73,6 +73,7 @@ setuptools.setup(
         'odoo-addon-sale_order_lot_generator>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_lot_selection>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_mass_action>=16.0dev,<16.1dev',
+        'odoo-addon-sale_order_minimum_amount>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_note_template>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_ordered_weight>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_partner_no_autofollow>=16.0dev,<16.1dev',
