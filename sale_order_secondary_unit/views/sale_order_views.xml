@@ -18,7 +18,7 @@
                         class="oe_inline oe_no_button"
                         widget="numeric_step"
                         options="{'auto_select': True}"
-                        readonly="state in ['done', 'cancel']"
+                        attrs="{'readonly': [('state', 'in', ['done', 'cancel'])]}"
                     />
 
                     <field
@@ -28,8 +28,7 @@
                                     '&amp;', ('product_tmpl_id.product_variant_ids', 'in', [product_id]),
                                              ('product_id', '=', False)]"
                         options="{'no_create': True, 'no_open': True}"
-                        readonly="product_uom_readonly"
-                        required="secondary_uom_qty != 0.0"
+                        attrs="{'readonly': [('product_uom_readonly', '=', True)], 'required': [('secondary_uom_qty', '!=', 0.0)]}"
                     />
 
                 </div>
@@ -50,8 +49,7 @@
                                 '&amp;', ('product_tmpl_id.product_variant_ids', 'in', [product_id]),
                                          ('product_id', '=', False)]"
                     options="{'no_create': True}"
-                    readonly="product_uom_readonly"
-                    required="secondary_uom_qty != 0.0"
+                    attrs="{'readonly': [('product_uom_readonly', '=', True)], 'required': [('secondary_uom_qty', '!=', 0.0)]}"
                     groups="uom.group_uom"
                 />
 

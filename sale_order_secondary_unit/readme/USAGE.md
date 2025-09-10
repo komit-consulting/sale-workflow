@@ -5,4 +5,4 @@ To use this module you need to:
 3.  Set the conversion factor.
 4.  Go to *Sales \> Quotation \> Create*.
 5.  Change quantities in line and secondary unit (produc_qty will be
-    change).
+    changed).
