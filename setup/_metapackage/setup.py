@@ -69,6 +69,7 @@ setuptools.setup(
         'odoo-addon-sale_order_line_multi_warehouse>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_line_no_print>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_line_price_history>=16.0dev,<16.1dev',
+        'odoo-addon-sale_order_line_price_lock_by_pricelist>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_line_product_attribute_values>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_line_sequence>=16.0dev,<16.1dev',
         'odoo-addon-sale_order_line_tag>=16.0dev,<16.1dev',
