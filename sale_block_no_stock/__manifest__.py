@@ -5,7 +5,7 @@
     "name": "Sale Block no Stock",
     "summary": """Block Sales if products has not enough
     Quantity based on a chosen field""",
-    "version": "17.0.1.0.0",
+    "version": "17.0.1.0.1",
     "development_status": "Alpha",
     "category": "Sales/Sales",
     "website": "https://github.com/OCA/sale-workflow",
