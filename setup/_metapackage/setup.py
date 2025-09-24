@@ -133,6 +133,7 @@ setuptools.setup(
         'odoo-addon-sale_stock_reservation_issue_on_qty_at_date_widget>=16.0dev,<16.1dev',
         'odoo-addon-sale_substate>=16.0dev,<16.1dev',
         'odoo-addon-sale_tier_validation>=16.0dev,<16.1dev',
+        'odoo-addon-sale_timesheet_project_manual>=16.0dev,<16.1dev',
         'odoo-addon-sale_transaction_form_link>=16.0dev,<16.1dev',
         'odoo-addon-sale_triple_discount>=16.0dev,<16.1dev',
         'odoo-addon-sale_validity_auto_cancel>=16.0dev,<16.1dev',
