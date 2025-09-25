@@ -51,7 +51,7 @@ addon | version | maintainers | summary
 [sale_invoice_frequency](sale_invoice_frequency/) | 18.0.1.0.1 | <a href='https://github.com/Shide'><img src='https://github.com/Shide.png' width='32' height='32' style='border-radius:50%;' alt='Shide'/></a> <a href='https://github.com/yajo'><img src='https://github.com/yajo.png' width='32' height='32' style='border-radius:50%;' alt='yajo'/></a> <a href='https://github.com/EmilioPascual'><img src='https://github.com/EmilioPascual.png' width='32' height='32' style='border-radius:50%;' alt='EmilioPascual'/></a> | Define the invoice frequency for customers
 [sale_invoice_policy](sale_invoice_policy/) | 18.0.1.1.0 |  | Sales Management: let the user choose the invoice policy on the order
 [sale_mail_autosubscribe](sale_mail_autosubscribe/) | 18.0.1.0.0 | <a href='https://github.com/ivantodorovich'><img src='https://github.com/ivantodorovich.png' width='32' height='32' style='border-radius:50%;' alt='ivantodorovich'/></a> | Automatically subscribe partners to their company's sale orders
-[sale_manual_delivery](sale_manual_delivery/) | 18.0.1.0.0 |  | Create manually your deliveries
+[sale_manual_delivery](sale_manual_delivery/) | 18.0.1.0.1 |  | Create manually your deliveries
 [sale_mrp_bom](sale_mrp_bom/) | 18.0.1.0.0 |  | Allows define a BOM in the sales lines.
 [sale_order_amount_to_invoice](sale_order_amount_to_invoice/) | 18.0.1.0.0 |  | Show total amount to invoice in quotations/sales orders
 [sale_order_archive](sale_order_archive/) | 18.0.1.0.0 |  | Archive Sale Orders
