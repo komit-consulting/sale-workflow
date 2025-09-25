@@ -134,6 +134,7 @@ setuptools.setup(
         'odoo-addon-sale_stock_picking_note>=16.0dev,<16.1dev',
         'odoo-addon-sale_stock_product_recommendation>=16.0dev,<16.1dev',
         'odoo-addon-sale_stock_reservation_issue_on_qty_at_date_widget>=16.0dev,<16.1dev',
+        'odoo-addon-sale_stock_secondary_unit>=16.0dev,<16.1dev',
         'odoo-addon-sale_substate>=16.0dev,<16.1dev',
         'odoo-addon-sale_tier_validation>=16.0dev,<16.1dev',
         'odoo-addon-sale_timesheet_project_manual>=16.0dev,<16.1dev',
