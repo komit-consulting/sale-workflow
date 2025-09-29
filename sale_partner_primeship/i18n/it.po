@@ -6,100 +6,102 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"Last-Translator: Automatically generated\n"
+"PO-Revision-Date: 2025-09-29 17:43+0000\n"
+"Last-Translator: mymage <stefano.consolaro@mymage.it>\n"
 "Language-Team: none\n"
 "Language: it\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
+"X-Generator: Weblate 5.10.4\n"
 
 #. module: sale_partner_primeship
 #: model_terms:ir.ui.view,arch_db:sale_partner_primeship.view_partner_form
 msgid "<span class=\"o_stat_text\">Primeships</span>"
-msgstr ""
+msgstr "<span class=\"o_stat_text\">Spedizione prioritaria</span>"
 
 #. module: sale_partner_primeship
 #: model:ir.model.constraint,message:sale_partner_primeship.constraint_sale_primeship_unique_order_line
 msgid "A sale order line can only have one primeship!"
-msgstr ""
+msgstr "Una riga ordine vendita può avere una sola spedizione prioritaria!"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_product_product__primeship_activation
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_product_template__primeship_activation
 msgid "Activates primeship"
-msgstr ""
+msgstr "Attiva spedizione prioritaria"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__active
 msgid "Active"
-msgstr ""
+msgstr "Attiva"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_res_partner__active_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_res_users__active_primeship
 msgid "Active Primeship"
-msgstr ""
+msgstr "Attiva spedizione prioritaria"
 
 #. module: sale_partner_primeship
 #: model:ir.actions.server,name:sale_partner_primeship.ir_cron_check_primeship_expired_ir_actions_server
 msgid "Check for Expired Partner Primeships"
-msgstr ""
+msgstr "Controllo spedizioni prioritarie partner scadute"
 
 #. module: sale_partner_primeship
 #: model:ir.model,name:sale_partner_primeship.model_res_partner
 msgid "Contact"
-msgstr ""
+msgstr "Contatto"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__create_uid
 msgid "Created by"
-msgstr ""
+msgstr "Creato da"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__create_date
 msgid "Created on"
-msgstr ""
+msgstr "Creato il"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__current
 msgid "Currently Active"
-msgstr ""
+msgstr "Attualmente attiva"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__end_date
 msgid "End Date"
-msgstr ""
+msgstr "Data fine"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__id
 msgid "ID"
-msgstr ""
+msgstr "ID"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__write_uid
 msgid "Last Updated by"
-msgstr ""
+msgstr "Ultimo aggiornamento di"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__write_date
 msgid "Last Updated on"
-msgstr ""
+msgstr "Ultimo aggiornamento il"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__name
 msgid "Name"
-msgstr ""
+msgstr "Nome"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__partner_id
 msgid "Partner"
-msgstr ""
+msgstr "Partner"
 
 #. module: sale_partner_primeship
 #: model:ir.actions.act_window,name:sale_partner_primeship.sale_primeship_action
@@ -108,13 +110,13 @@ msgstr ""
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_order_line__primeship_ids
 #: model_terms:ir.ui.view,arch_db:sale_partner_primeship.sale_primeship_view_form
 msgid "Primeship"
-msgstr ""
+msgstr "Spedizione prioritaria"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_product_product__primeship_duration
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_product_template__primeship_duration
 msgid "Primeship duration (in months)"
-msgstr ""
+msgstr "Durata spedizione prioritaria (in mesi)"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_order_line__primeship_id
@@ -122,57 +124,57 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:sale_partner_primeship.sale_primeship_view_tree
 #: model_terms:ir.ui.view,arch_db:sale_partner_primeship.view_partner_form
 msgid "Primeships"
-msgstr ""
+msgstr "Spedizioni prioritarie"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_res_partner__primeship_count
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_res_users__primeship_count
 msgid "Primeships Count"
-msgstr ""
+msgstr "Conteggio spedizioni prioritarie"
 
 #. module: sale_partner_primeship
 #. odoo-python
 #: code:addons/sale_partner_primeship/models/sale_primeship.py:0
 msgid "Primeships cannot overlaps"
-msgstr ""
+msgstr "Le spedizioni prioritarie non possono sovrapporsi"
 
 #. module: sale_partner_primeship
 #: model:ir.model,name:sale_partner_primeship.model_product_template
 msgid "Product"
-msgstr ""
+msgstr "Prodotto"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__order_id
 msgid "Sale Order"
-msgstr ""
+msgstr "Ordine di vendita"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__order_line_id
 msgid "Sale Order Line"
-msgstr ""
+msgstr "Riga ordine di vendita"
 
 #. module: sale_partner_primeship
 #: model:ir.model,name:sale_partner_primeship.model_sale_primeship
 msgid "Sale Prime Memberships"
-msgstr ""
+msgstr "Iscrizione vendita prioritaria"
 
 #. module: sale_partner_primeship
 #: model:ir.model,name:sale_partner_primeship.model_sale_order
 msgid "Sales Order"
-msgstr ""
+msgstr "Ordine di vendita"
 
 #. module: sale_partner_primeship
 #: model:ir.model,name:sale_partner_primeship.model_sale_order_line
 msgid "Sales Order Line"
-msgstr ""
+msgstr "Riga ordine di vendita"
 
 #. module: sale_partner_primeship
 #: model:ir.model.fields,field_description:sale_partner_primeship.field_sale_primeship__start_date
 msgid "Start Date"
-msgstr ""
+msgstr "Data inizio"
 
 #. module: sale_partner_primeship
 #. odoo-python
 #: code:addons/sale_partner_primeship/models/sale_primeship.py:0
 msgid "The end date cannot be before start date"
-msgstr ""
+msgstr "La data fine non può essere antecedente alla data inizio"
