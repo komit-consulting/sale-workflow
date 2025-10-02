@@ -1,7 +1,3 @@
 - [Tecnativa](https://www.tecnativa.com)
   - Pedro M. Baeza
   - Carlos López
-- [Komit Company Limited](https://komit-consulting.com/)
-  - Jean-Charles Drubay
-  - Truong Dinh Minh Duc
-  - Vo Minh Bao Hieu

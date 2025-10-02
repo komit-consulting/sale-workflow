@@ -9,10 +9,7 @@ class ProductPricelistItem(models.Model):
         selection_add=[
             ("3_1_global_product_template", "Global - Product template"),
             ("3_2_global_product_category", "Global - Product category"),
-            (
-                "3_3_global_product_ancestor_category",
-                "Global - Ancestor Product Category",
-            ),
+            ("3_3_global_product_ancestor_category", "Global - Ancestor Product Category"),
         ],
         ondelete={
             "3_1_global_product_template": "set default",
@@ -69,12 +66,10 @@ class ProductPricelistItem(models.Model):
                 item.applied_on == "3_3_global_product_ancestor_category"
                 and not item.ancestor_product_category_id
             ):
-                raise ValidationError(
-                    _(
-                        "Please specify the product ancestor category for which this "
-                        "global rule should be applied"
-                    )
-                )
+                raise ValidationError(_(
+                    "Please specify the product ancestor category for which this global"
+                    " rule should be applied"
+                ))
         return res
 
     @api.depends(
@@ -113,8 +108,7 @@ class ProductPricelistItem(models.Model):
                 and item.applied_on == "3_3_global_product_ancestor_category"
             ):
                 item.name = _("Ancestor product category: %s") % (
-                    item.ancestor_product_category_id.display_name
-                )
+                    item.ancestor_product_category_id.display_name)
         return res
 
     @api.model_create_multi
@@ -144,15 +138,13 @@ class ProductPricelistItem(models.Model):
                         }
                     )
                 elif applied_on == "3_3_global_product_ancestor_category":
-                    values.update(
-                        {
-                            "product_id": None,
-                            "product_tmpl_id": None,
-                            "categ_id": None,
-                            "global_categ_id": None,
-                            "global_product_tmpl_id": None,
-                        }
-                    )
+                    values.update({
+                        "product_id": None,
+                        "product_tmpl_id": None,
+                        "categ_id": None,
+                        "global_categ_id": None,
+                        "global_product_tmpl_id": None,
+                    })
         return super().create(vals_list)
 
     def write(self, values):
@@ -204,36 +196,57 @@ class ProductPricelistItem(models.Model):
         :rtype: bool
         """
         self.ensure_one()
-        qty_data = self.env.context.get("pricelist_global_cummulative_quantity", {})
-        if not qty_data or self.applied_on not in [
+        qty_data = self.env.context.get("pricelist_global_cummulative_quantity", {}) or {}
+        applied_on_vals = {
             "3_1_global_product_template",
             "3_2_global_product_category",
             "3_3_global_product_ancestor_category",
-        ]:
+        }
+        # If not one of the supported "global" applied_on values → fallback to super()
+        if not qty_data or self.applied_on not in applied_on_vals:
             return super()._is_applicable_for(product, qty_in_product_uom)
 
         is_applicable = True
+        # Global Product Template
         if self.applied_on == "3_1_global_product_template":
-            total_qty = qty_data["by_template"].get(product.product_tmpl_id, 0.0)
+            total_qty = qty_data.get("by_template", {}).get(product.product_tmpl_id, 0.0)
             if self.min_quantity and total_qty < self.min_quantity:
                 is_applicable = False
             elif self.global_product_tmpl_id != product.product_tmpl_id:
                 is_applicable = False
+        # Global Product Category
         elif self.applied_on == "3_2_global_product_category":
-            total_qty = qty_data["by_categ"].get(product.categ_id, 0.0)
+            total_qty = qty_data.get("by_categ", {}).get(product.categ_id, 0.0)
             if self.min_quantity and total_qty < self.min_quantity:
                 is_applicable = False
             elif not product.categ_id.parent_path.startswith(
                 self.global_categ_id.parent_path
             ):
                 is_applicable = False
-
+        # Global Product Ancestor Category
         elif self.applied_on == "3_3_global_product_ancestor_category":
-            total_qty = qty_data.get("by_categ", {}).get(product.categ_id, 0.0)
+            ancestor_categ = self.ancestor_product_category_id
+            if not ancestor_categ:
+                return False
+
+            # collect all ids in ancestor branch using child_of
+            child_ids = self.env['product.category'].search([
+                ('id', 'child_of', ancestor_categ.id)
+            ])
+            # product must belong to the branch
+            prod_categ = product.categ_id
+            if not prod_categ or prod_categ not in child_ids:
+                return False
+
+            # compute total qty across all categories in this branch
+            total_qty = 0.0
+            by_categ = qty_data.get("by_categ", {})
+            for categ_id, qty in by_categ.items():
+                c_id = categ_id.id if hasattr(categ_id, "id") else int(categ_id)
+                if c_id in child_ids:
+                    total_qty += qty
+
             if self.min_quantity and total_qty < self.min_quantity:
                 is_applicable = False
-            elif not product.categ_id.parent_path.startswith(
-                self.ancestor_product_category_id.parent_path
-            ):
-                is_applicable = False
+
         return is_applicable
