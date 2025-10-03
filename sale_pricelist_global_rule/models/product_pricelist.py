@@ -197,56 +197,105 @@ class ProductPricelistItem(models.Model):
         """
         self.ensure_one()
         qty_data = self.env.context.get("pricelist_global_cummulative_quantity", {}) or {}
-        applied_on_vals = {
+        supported = {
             "3_1_global_product_template",
             "3_2_global_product_category",
             "3_3_global_product_ancestor_category",
         }
-        # If not one of the supported "global" applied_on values → fallback to super()
-        if not qty_data or self.applied_on not in applied_on_vals:
+        # Fallback to base behavior if not a supported global case or no context
+        if not qty_data or self.applied_on not in supported:
             return super()._is_applicable_for(product, qty_in_product_uom)
 
         is_applicable = True
-        # Global Product Template
         if self.applied_on == "3_1_global_product_template":
-            total_qty = qty_data.get("by_template", {}).get(product.product_tmpl_id, 0.0)
+            total_qty = (qty_data.get("by_template") or {}).get(product.product_tmpl_id, 0.0)
             if self.min_quantity and total_qty < self.min_quantity:
                 is_applicable = False
             elif self.global_product_tmpl_id != product.product_tmpl_id:
                 is_applicable = False
-
-        # Global Product Category
         elif self.applied_on == "3_2_global_product_category":
-            total_qty = qty_data.get("by_categ", {}).get(product.categ_id, 0.0)
+            total_qty = (qty_data.get("by_categ") or {}).get(product.categ_id, 0.0)
             if self.min_quantity and total_qty < self.min_quantity:
                 is_applicable = False
             elif not product.categ_id.parent_path.startswith(
-                self.global_categ_id.parent_path
-            ):
+                self.global_categ_id.parent_path):
                 is_applicable = False
-        # Global Product Ancestor Category
         elif self.applied_on == "3_3_global_product_ancestor_category":
             ancestor_categ = self.ancestor_product_category_id
             if not ancestor_categ:
                 return False
 
-            # collect all ids in ancestor branch using child_of
-            child_ids = self.env['product.category'].search([
-                ('id', 'child_of', ancestor_categ.id)
-            ])
-            # product must belong to the branch
+            Category = self.env["product.category"]
+
+            # ancestor + all descendants (fast, uses parent_path internally)
+            child_categories = Category.search([("id", "child_of", ancestor_categ.id)])
+
+            # product's category must belong to this ancestor branch
             prod_categ = product.categ_id
-            if not prod_categ or prod_categ not in child_ids:
+            if not prod_categ or prod_categ not in child_categories:
                 return False
 
-            # compute total qty across all categories in this branch
-            total_qty = 0.0
-            by_categ = qty_data.get("by_categ", {})
-            for categ_id, qty in by_categ.items():
-                c_id = categ_id.id if hasattr(categ_id, "id") else int(categ_id)
-                if c_id in child_ids:
-                    total_qty += qty
+            # Normalize by_categ keys to ids: {id: qty}
+            by_categ_raw = qty_data.get("by_categ") or {}
+            by_categ_id = {
+                (k.id if hasattr(k, "id") else int(k)): v
+                for k, v in by_categ_raw.items()
+            }
 
+            # Sum total quantity across the whole ancestor branch
+            total_qty = sum(by_categ_id.get(cid, 0.0) for cid in child_categories.ids)
+
+            # Check minimum quantity threshold over the branch total
             if self.min_quantity and total_qty < self.min_quantity:
                 is_applicable = False
+
+        if not is_applicable:
+            return False
+        # --------------------------------------------------------------
+        # Ensure current price item has best discount
+        #
+        # By default Odoo will just pick the first applicable rule  based on sequence.
+        # That means if two percentage rules apply to the same product
+        # (e.g. Cat A = 10%, Cat C = 20%), the system might pick the 10% rule just
+        # because it comes first. Therefore, we need the code below to check if the
+        # current price item is already higher discount.
+        # --------------------------------------------------------------
+        if (
+            self.compute_price == "percentage"
+            and self.percent_price
+            and not self.env.context.get("skip_best_percent_check")
+        ):
+            ctx = dict(self.env.context or {})
+            # The context flag `skip_best_percent_check` is used to avoid
+            # infinite recursion when we call `_is_applicable_for` on rivals.
+            ctx["skip_best_percent_check"] = True
+            # Check all percentage rules in the same pricelist
+            items = self.pricelist_id.item_ids.with_context(ctx).filtered(
+                lambda it: it.id != self.id
+                           and it.compute_price == "percentage"
+                           and it.percent_price not in (False, None)
+            )
+
+            for it in items:
+                # Ask each rival if it applies to THIS product & qty
+                if not it._is_applicable_for(product, qty_in_product_uom):
+                    continue
+
+                # Among percentage rules that are all applicable:
+                #   1. Higher percent_price is always preferred.
+                #   2. If equal %, the rule with lower sequence is preferred.
+                #   3. If still tied, the rule created earlier (smaller create_date)
+                #   wins.
+                if (
+                    it.percent_price > self.percent_price
+                    or (
+                    it.percent_price == self.percent_price
+                    and (it.sequence < self.sequence or (
+                    it.sequence == self.sequence
+                    and it.create_date < self.create_date
+                )
+                    )
+                )):
+                    is_applicable = False
+                    break
         return is_applicable
