@@ -208,17 +208,18 @@ class ProductPricelistItem(models.Model):
 
         is_applicable = True
         if self.applied_on == "3_1_global_product_template":
-            total_qty = (qty_data.get("by_template") or {}).get(product.product_tmpl_id, 0.0)
+            total_qty = qty_data["by_template"].get(product.product_tmpl_id, 0.0)
             if self.min_quantity and total_qty < self.min_quantity:
                 is_applicable = False
             elif self.global_product_tmpl_id != product.product_tmpl_id:
                 is_applicable = False
         elif self.applied_on == "3_2_global_product_category":
-            total_qty = (qty_data.get("by_categ") or {}).get(product.categ_id, 0.0)
+            total_qty = qty_data["by_categ"].get(product.categ_id, 0.0)
             if self.min_quantity and total_qty < self.min_quantity:
                 is_applicable = False
             elif not product.categ_id.parent_path.startswith(
-                self.global_categ_id.parent_path):
+                self.global_categ_id.parent_path
+            ):
                 is_applicable = False
         elif self.applied_on == "3_3_global_product_ancestor_category":
             ancestor_categ = self.ancestor_product_category_id
@@ -272,8 +273,8 @@ class ProductPricelistItem(models.Model):
             # Check all percentage rules in the same pricelist
             items = self.pricelist_id.item_ids.with_context(ctx).filtered(
                 lambda it: it.id != self.id
-                           and it.compute_price == "percentage"
-                           and it.percent_price not in (False, None)
+                and it.compute_price == "percentage"
+                and it.percent_price not in (False, None)
             )
 
             for it in items:
@@ -283,19 +284,15 @@ class ProductPricelistItem(models.Model):
 
                 # Among percentage rules that are all applicable:
                 #   1. Higher percent_price is always preferred.
-                #   2. If equal %, the rule with lower sequence is preferred.
-                #   3. If still tied, the rule created earlier (smaller create_date)
-                #   wins.
+                #   2. If tied, the rule created earlier (smaller create_date)
+                #       wins.
                 if (
                     it.percent_price > self.percent_price
                     or (
-                    it.percent_price == self.percent_price
-                    and (it.sequence < self.sequence or (
-                    it.sequence == self.sequence
-                    and it.create_date < self.create_date
-                )
+                        it.percent_price == self.percent_price
+                        and it.create_date < self.create_date
                     )
-                )):
+                ):
                     is_applicable = False
                     break
         return is_applicable
