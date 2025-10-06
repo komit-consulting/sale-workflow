@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-
     <record id="view_product_pricelist_item_form" model="ir.ui.view">
         <field name="name">view.product.pricelist.item.form</field>
         <field name="model">product.pricelist.item</field>
@@ -17,8 +16,12 @@
                     options="{'no_create':1}"
                     attrs="{'invisible': [('applied_on','!=', '3_1_global_product_template')], 'required': [('applied_on','=', '3_1_global_product_template')]}"
                 />
+                <field
+                    name="ancestor_product_category_id"
+                    options="{'no_create':1}"
+                    attrs="{'invisible': [('applied_on','!=', '3_3_global_product_ancestor_category')], 'required': [('applied_on','=', '3_3_global_product_ancestor_category')]}"
+                />
             </xpath>
         </field>
     </record>
-
 </odoo>

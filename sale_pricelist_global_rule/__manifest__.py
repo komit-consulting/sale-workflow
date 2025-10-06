@@ -2,7 +2,8 @@
     "name": "Sale pricelist global rule",
     "version": "16.0.1.0.0",
     "summary": "Apply a global rule to all sale order",
-    "author": "Tecnativa, Odoo Community Association (OCA)",
+    "author": "Tecnativa, Odoo Community Association (OCA),"
+    "Truong Duc (Komit-consulting)",
     "category": "Sales Management",
     "website": "https://github.com/OCA/sale-workflow",
     "depends": [
