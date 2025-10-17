@@ -30,7 +30,7 @@ addon | version | maintainers | summary
 [product_form_sale_link](product_form_sale_link/) | 18.0.1.0.1 |  | Adds a button on product forms to access Sale Lines
 [product_set_sell_only_by_packaging](product_set_sell_only_by_packaging/) | 18.0.1.0.0 |  | Glue module between `sell_only_by_packaging` and `sale_product_set_packaging_qty`.
 [sale_automatic_workflow](sale_automatic_workflow/) | 18.0.1.0.0 |  | Sale Automatic Workflow
-[sale_automatic_workflow_job](sale_automatic_workflow_job/) | 18.0.1.0.0 |  | Execute sale automatic workflows in queue jobs
+[sale_automatic_workflow_job](sale_automatic_workflow_job/) | 18.0.1.0.1 |  | Execute sale automatic workflows in queue jobs
 [sale_automatic_workflow_periodicity](sale_automatic_workflow_periodicity/) | 18.0.1.0.0 | <a href='https://github.com/TDu'><img src='https://github.com/TDu.png' width='32' height='32' style='border-radius:50%;' alt='TDu'/></a> | Adds a period for the execution of a workflow.
 [sale_automatic_workflow_stock](sale_automatic_workflow_stock/) | 18.0.1.0.0 |  | Sale Automatic Workflow Stock
 [sale_automatic_workflow_stock_job](sale_automatic_workflow_stock_job/) | 18.0.1.0.0 |  | Sale Automatic Workflow Stock Job
