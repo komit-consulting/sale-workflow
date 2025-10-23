@@ -57,6 +57,7 @@ addon | version | maintainers | summary
 [sale_order_invoice_amount](sale_order_invoice_amount/) | 17.0.1.0.0 |  | Improves Sales Order invoiced/to invoice amount calculation based on product quantities when the company setting is enabled.
 [sale_order_invoicing_finished_task](sale_order_invoicing_finished_task/) | 17.0.2.0.0 |  | Control invoice order lines if their related task has been set to invoiceable
 [sale_order_line_date](sale_order_line_date/) | 17.0.1.0.2 |  | Adds a commitment date to each sale order line.
+[sale_order_line_description](sale_order_line_description/) | 17.0.1.0.0 |  | Sale order line description
 [sale_order_line_input](sale_order_line_input/) | 17.0.1.0.0 |  | Search, create or modify directly sale order lines
 [sale_order_line_menu](sale_order_line_menu/) | 17.0.1.0.0 |  | Adds a Sale Order Lines Menu
 [sale_order_line_price_history](sale_order_line_price_history/) | 17.0.1.1.0 | <a href='https://github.com/ernestotejeda'><img src='https://github.com/ernestotejeda.png' width='32' height='32' style='border-radius:50%;' alt='ernestotejeda'/></a> <a href='https://github.com/CarlosRoca13'><img src='https://github.com/CarlosRoca13.png' width='32' height='32' style='border-radius:50%;' alt='CarlosRoca13'/></a> <a href='https://github.com/Shide'><img src='https://github.com/Shide.png' width='32' height='32' style='border-radius:50%;' alt='Shide'/></a> | Sale order line price history
