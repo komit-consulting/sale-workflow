@@ -17,9 +17,9 @@
                 <td>
                     <strong>Next Expiry Date</strong>
                     <br />
-                    <small><t
-                            t-out="props.calcData.predicted_first_expiration_date"
-                        /></small>
+                    <small>
+                        <t t-out="props.calcData.predicted_first_expiration_date" />
+                    </small>
                 </td>
             </tr>
         </xpath>
