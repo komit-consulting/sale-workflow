@@ -369,7 +369,7 @@ ul.auto-toc {
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 !! source digest: sha256:c1e35bc9e656c1d24899651846d6dc96ecc0b0dcc678da6bdc31d4f37a61616e
 !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!! -->
-<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Alpha" src="https://img.shields.io/badge/maturity-Alpha-red.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/licence-LGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/sale-workflow/tree/16.0/sale_stock_expiry_date_on_qty_at_date_widget"><img alt="OCA/sale-workflow" src="https://img.shields.io/badge/github-OCA%2Fsale--workflow-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/sale-workflow-16-0/sale-workflow-16-0-sale_stock_expiry_date_on_qty_at_date_widget"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/sale-workflow&amp;target_branch=16.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
+<p><a class="reference external image-reference" href="https://odoo-community.org/page/development-status"><img alt="Alpha" src="https://img.shields.io/badge/maturity-Alpha-red.png" /></a> <a class="reference external image-reference" href="http://www.gnu.org/licenses/lgpl-3.0-standalone.html"><img alt="License: LGPL-3" src="https://img.shields.io/badge/licence-LGPL--3-blue.png" /></a> <a class="reference external image-reference" href="https://github.com/OCA/sale-workflow/tree/18.0/sale_stock_expiry_date_on_qty_at_date_widget"><img alt="OCA/sale-workflow" src="https://img.shields.io/badge/github-OCA%2Fsale--workflow-lightgray.png?logo=github" /></a> <a class="reference external image-reference" href="https://translation.odoo-community.org/projects/sale-workflow-18-0/sale-workflow-18-0-sale_stock_expiry_date_on_qty_at_date_widget"><img alt="Translate me on Weblate" src="https://img.shields.io/badge/weblate-Translate%20me-F47D42.png" /></a> <a class="reference external image-reference" href="https://runboat.odoo-community.org/builds?repo=OCA/sale-workflow&amp;target_branch=18.0"><img alt="Try me on Runboat" src="https://img.shields.io/badge/runboat-Try%20me-875A7B.png" /></a></p>
 <p>This module extends the functionality of Qty at Date Widget to display
 next Expiry Date and to allow you to inform your customers properly
 about the goods they are going to purchase.</p>
@@ -425,22 +425,22 @@ information with their customers.</p>
 <h1><a class="toc-backref" href="#toc-entry-4">Usage</a></h1>
 <p>To use this module, you need to:</p>
 <ol class="arabic simple">
-<li>Create an Storable product with Tracking by Lots or S/N and check
-Expiration Date</li>
+<li>Create an product with Type <strong>Goods</strong> and Track Inventory by Lots or
+S/N and check Expiration Date</li>
 <li>Fill stock of this product with Lots and Expiration Dates</li>
 <li>Create a new Sale and select the product you’ve configured previously</li>
 <li>Check the Widget that shows info about the stock</li>
 <li>Check the next Expiration Date is correctly set</li>
-<li>Click on View Quants to see all Quants and its Expiration Dates</li>
+<li>Click on View Stock to see all Quants and its Expiration Dates</li>
 </ol>
-<p><img alt="Qty at Date Widget with Expiry Date and Quant Button" src="https://raw.githubusercontent.com/OCA/sale-workflow/16.0/sale_stock_expiry_date_on_qty_at_date_widget/static/description/exp_date_widget.png" /></p>
+<p><img alt="Qty at Date Widget with Expiry Date and Quant Button" src="https://raw.githubusercontent.com/OCA/sale-workflow/18.0/sale_stock_expiry_date_on_qty_at_date_widget/static/description/exp_date_widget.png" /></p>
 </div>
 <div class="section" id="bug-tracker">
 <h1><a class="toc-backref" href="#toc-entry-5">Bug Tracker</a></h1>
 <p>Bugs are tracked on <a class="reference external" href="https://github.com/OCA/sale-workflow/issues">GitHub Issues</a>.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-<a class="reference external" href="https://github.com/OCA/sale-workflow/issues/new?body=module:%20sale_stock_expiry_date_on_qty_at_date_widget%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
+<a class="reference external" href="https://github.com/OCA/sale-workflow/issues/new?body=module:%20sale_stock_expiry_date_on_qty_at_date_widget%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**">feedback</a>.</p>
 <p>Do not contact contributors directly about support or help with technical issues.</p>
 </div>
 <div class="section" id="credits">
@@ -467,8 +467,8 @@ If you spotted it first, help us to smash it by providing a detailed and welcome
 mission is to support the collaborative development of Odoo features and
 promote its widespread use.</p>
 <p>Current <a class="reference external" href="https://odoo-community.org/page/maintainer-role">maintainers</a>:</p>
-<p><a class="reference external image-reference" href="https://github.com/Shide"><img alt="Shide" src="https://github.com/Shide.png?size=40px" /></a> <a class="reference external image-reference" href="https://github.com/rafaelbn"><img alt="rafaelbn" src="https://github.com/rafaelbn.png?size=40px" /></a></p>
-<p>This module is part of the <a class="reference external" href="https://github.com/OCA/sale-workflow/tree/16.0/sale_stock_expiry_date_on_qty_at_date_widget">OCA/sale-workflow</a> project on GitHub.</p>
+<p><a class="reference external image-reference" href="https://github.com/Shide"><img alt="Shide" src="https://github.com/Shide.png?size=40px" /></a> <a class="reference external image-reference" href="https://github.com/rafaelbn"><img alt="rafaelbn" src="https://github.com/rafaelbn.png?size=40px" /></a> <a class="reference external image-reference" href="https://github.com/Andrii9090"><img alt="Andrii9090" src="https://github.com/Andrii9090.png?size=40px" /></a></p>
+<p>This module is part of the <a class="reference external" href="https://github.com/OCA/sale-workflow/tree/18.0/sale_stock_expiry_date_on_qty_at_date_widget">OCA/sale-workflow</a> project on GitHub.</p>
 <p>You are welcome to contribute. To learn how please visit <a class="reference external" href="https://odoo-community.org/page/Contribute">https://odoo-community.org/page/Contribute</a>.</p>
 </div>
 </div>

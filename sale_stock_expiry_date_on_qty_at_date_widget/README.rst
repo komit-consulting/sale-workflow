@@ -17,13 +17,13 @@ Sale Stock Expiry Date on Qty at Date widget
     :target: http://www.gnu.org/licenses/lgpl-3.0-standalone.html
     :alt: License: LGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--workflow-lightgray.png?logo=github
-    :target: https://github.com/OCA/sale-workflow/tree/16.0/sale_stock_expiry_date_on_qty_at_date_widget
+    :target: https://github.com/OCA/sale-workflow/tree/18.0/sale_stock_expiry_date_on_qty_at_date_widget
     :alt: OCA/sale-workflow
 .. |badge4| image:: https://img.shields.io/badge/weblate-Translate%20me-F47D42.png
-    :target: https://translation.odoo-community.org/projects/sale-workflow-16-0/sale-workflow-16-0-sale_stock_expiry_date_on_qty_at_date_widget
+    :target: https://translation.odoo-community.org/projects/sale-workflow-18-0/sale-workflow-18-0-sale_stock_expiry_date_on_qty_at_date_widget
     :alt: Translate me on Weblate
 .. |badge5| image:: https://img.shields.io/badge/runboat-Try%20me-875A7B.png
-    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-workflow&target_branch=16.0
+    :target: https://runboat.odoo-community.org/builds?repo=OCA/sale-workflow&target_branch=18.0
     :alt: Try me on Runboat
 
 |badge1| |badge2| |badge3| |badge4| |badge5|
@@ -74,17 +74,17 @@ Usage
 
 To use this module, you need to:
 
-1. Create an Storable product with Tracking by Lots or S/N and check
-   Expiration Date
+1. Create an product with Type **Goods** and Track Inventory by Lots or
+   S/N and check Expiration Date
 2. Fill stock of this product with Lots and Expiration Dates
 3. Create a new Sale and select the product you've configured previously
 4. Check the Widget that shows info about the stock
 5. Check the next Expiration Date is correctly set
-6. Click on View Quants to see all Quants and its Expiration Dates
+6. Click on View Stock to see all Quants and its Expiration Dates
 
 |Qty at Date Widget with Expiry Date and Quant Button|
 
-.. |Qty at Date Widget with Expiry Date and Quant Button| image:: https://raw.githubusercontent.com/OCA/sale-workflow/16.0/sale_stock_expiry_date_on_qty_at_date_widget/static/description/exp_date_widget.png
+.. |Qty at Date Widget with Expiry Date and Quant Button| image:: https://raw.githubusercontent.com/OCA/sale-workflow/18.0/sale_stock_expiry_date_on_qty_at_date_widget/static/description/exp_date_widget.png
 
 Bug Tracker
 ===========
@@ -92,7 +92,7 @@ Bug Tracker
 Bugs are tracked on `GitHub Issues <https://github.com/OCA/sale-workflow/issues>`_.
 In case of trouble, please check there if your issue has already been reported.
 If you spotted it first, help us to smash it by providing a detailed and welcomed
-`feedback <https://github.com/OCA/sale-workflow/issues/new?body=module:%20sale_stock_expiry_date_on_qty_at_date_widget%0Aversion:%2016.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
+`feedback <https://github.com/OCA/sale-workflow/issues/new?body=module:%20sale_stock_expiry_date_on_qty_at_date_widget%0Aversion:%2018.0%0A%0A**Steps%20to%20reproduce**%0A-%20...%0A%0A**Current%20behavior**%0A%0A**Expected%20behavior**>`_.
 
 Do not contact contributors directly about support or help with technical issues.
 
@@ -128,11 +128,14 @@ promote its widespread use.
 .. |maintainer-rafaelbn| image:: https://github.com/rafaelbn.png?size=40px
     :target: https://github.com/rafaelbn
     :alt: rafaelbn
+.. |maintainer-Andrii9090| image:: https://github.com/Andrii9090.png?size=40px
+    :target: https://github.com/Andrii9090
+    :alt: Andrii9090
 
 Current `maintainers <https://odoo-community.org/page/maintainer-role>`__:
 
-|maintainer-Shide| |maintainer-rafaelbn| 
+|maintainer-Shide| |maintainer-rafaelbn| |maintainer-Andrii9090| 
 
-This module is part of the `OCA/sale-workflow <https://github.com/OCA/sale-workflow/tree/16.0/sale_stock_expiry_date_on_qty_at_date_widget>`_ project on GitHub.
+This module is part of the `OCA/sale-workflow <https://github.com/OCA/sale-workflow/tree/18.0/sale_stock_expiry_date_on_qty_at_date_widget>`_ project on GitHub.
 
 You are welcome to contribute. To learn how please visit https://odoo-community.org/page/Contribute.

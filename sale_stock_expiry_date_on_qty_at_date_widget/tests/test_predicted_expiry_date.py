@@ -32,7 +32,8 @@ class PredictedExpiryDate(TransactionCase):
                 "use_expiration_date": True,
                 "tracking": "lot",
                 "categ_id": category.id,
-                "type": "product",
+                "type": "consu",
+                "is_storable": True,
             }
         )
         cls.env["stock.quant"].create(
