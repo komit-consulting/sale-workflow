@@ -97,6 +97,7 @@ addon | version | maintainers | summary
 [sale_pricelist_display_surcharge](sale_pricelist_display_surcharge/) | 18.0.1.0.0 |  | This module shows to the customer the surcharges if wanted.
 [sale_procurement_group_by_line](sale_procurement_group_by_line/) | 18.0.1.0.1 |  | Base module for multiple procurement group by Sale order
 [sale_product_identification](sale_product_identification/) | 18.0.1.0.0 |  | Sale Product Identification Numbers
+[sale_product_multi_add](sale_product_multi_add/) | 18.0.1.0.0 |  | Sale Product Multi Add
 [sale_product_set](sale_product_set/) | 18.0.1.0.0 |  | Sales product set
 [sale_product_set_packaging_qty](sale_product_set_packaging_qty/) | 18.0.1.0.0 |  | Manage packaging and quantities on product set lines
 [sale_quotation_number](sale_quotation_number/) | 18.0.1.0.0 |  | Different sequence for sale quotations
