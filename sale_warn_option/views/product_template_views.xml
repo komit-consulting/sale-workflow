@@ -10,7 +10,7 @@
             <xpath expr="//field[@name='sale_line_warn_msg']" position="before">
                 <field
                     name="sale_line_warn_option"
-                    domain="[('allowed_warning_type', '=', sale_line_warn), ('allowed_warning_usage', 'in', ('all', 'product_sale_warn'))]"
+                    domain="['|', ('allowed_warning_type', '=', False), ('allowed_warning_type', '=', sale_line_warn), ('allowed_warning_usage', 'in', ('all', 'product_sale_warn'))]"
                     context="{'default_allowed_warning_usage': 'product_sale_warn', 'default_allowed_warning_type': sale_line_warn}"
                     invisible="sale_line_warn in (False, 'no-message')"
                     placeholder="Select a warning option"
