@@ -1,7 +1,8 @@
 # Copyright 2025 Quartile (https://www.quartile.co)
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl).
 {
-    "name": "Sale Order Line Cient Order Reference",
+    "name": "Sale Order Line Client Order Reference",
+    "summary": "Customer Reference on Sale Order Lines and Invoice Lines",
     "version": "18.0.1.0.0",
     "author": "Quartile, Odoo Community Association (OCA)",
     "category": "Sale",
