@@ -3,7 +3,7 @@
 {
     "name": "Sale Order Line Client Order Reference",
     "summary": "Customer Reference on Sale Order Lines and Invoice Lines",
-    "version": "18.0.1.0.0",
+    "version": "18.0.1.0.1",
     "author": "Quartile, Odoo Community Association (OCA)",
     "category": "Sale",
     "website": "https://github.com/OCA/sale-workflow",
