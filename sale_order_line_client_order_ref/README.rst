@@ -1,10 +1,6 @@
-.. image:: https://odoo-community.org/readme-banner-image
-   :target: https://odoo-community.org/get-involved?utm_source=readme
-   :alt: Odoo Community Association
-
-=====================================
-Sale Order Line Cient Order Reference
-=====================================
+======================================
+Sale Order Line Client Order Reference
+======================================
 
 .. 
    !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
@@ -17,7 +13,7 @@ Sale Order Line Cient Order Reference
 .. |badge1| image:: https://img.shields.io/badge/maturity-Beta-yellow.png
     :target: https://odoo-community.org/page/development-status
     :alt: Beta
-.. |badge2| image:: https://img.shields.io/badge/license-AGPL--3-blue.png
+.. |badge2| image:: https://img.shields.io/badge/licence-AGPL--3-blue.png
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 .. |badge3| image:: https://img.shields.io/badge/github-OCA%2Fsale--workflow-lightgray.png?logo=github
@@ -34,10 +30,10 @@ Sale Order Line Cient Order Reference
 
 This module provides the following features:
 
-- Adds a Customer Order Number to sale order lines and propagates the
-  value to invoice lines.
-- Allows the Customer Order Number to be displayed in both sale and
-  invoice reports.
+-  Adds a Customer Order Number to sale order lines and propagates the
+   value to invoice lines.
+-  Allows the Customer Order Number to be displayed in both sale and
+   invoice reports.
 
 This module is useful in cases where a single sales order represents
 multiple customer orders.
@@ -52,17 +48,17 @@ Configuration
 
 To display the Customer Order Reference on sale reports:
 
-- Go to *Sales → Configuration → Settings*.
-- Enable **Show Customer Order Reference in Sale Reports (PDF)**. If
-  selected, the Order Ref column will be added to the lines in the sale
-  report (PDF).
+-  Go to *Sales → Configuration → Settings*.
+-  Enable **Show Customer Order Reference in Sale Reports (PDF)**. If
+   selected, the Order Ref column will be added to the lines in the sale
+   report (PDF).
 
 To display the Customer Order Reference on invoice reports:
 
-- Go to *Invoicing / Accounting → Configuration → Settings*.
-- Enable **Show Customer Order Reference in Invoice Reports (PDF)**. If
-  selected, the Order Ref column will be added to the lines in the
-  invoice report (PDF).
+-  Go to *Invoicing / Accounting → Configuration → Settings*.
+-  Enable **Show Customer Order Reference in Invoice Reports (PDF)**. If
+   selected, the Order Ref column will be added to the lines in the
+   invoice report (PDF).
 
 Bug Tracker
 ===========
@@ -85,10 +81,10 @@ Authors
 Contributors
 ------------
 
-- Quartile <https://www.quartile.co>
+-  Quartile <https://www.quartile.co>
 
-  - Yoshi Tashiro
-  - Aung Ko Ko Lin
+   -  Yoshi Tashiro
+   -  Aung Ko Ko Lin
 
 Maintainers
 -----------
