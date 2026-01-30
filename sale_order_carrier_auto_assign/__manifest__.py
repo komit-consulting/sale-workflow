@@ -10,7 +10,10 @@
     "author": "Camptocamp, BCIM, Odoo Community Association (OCA)",
     "maintainers": ["jbaudoux"],
     "license": "AGPL-3",
-    "data": ["views/res_config_settings_views.xml"],
+    "data": [
+        "views/res_config_settings_views.xml",
+        "views/sale_order_views.xml",
+    ],
     "application": False,
     "installable": True,
     "depends": ["delivery"],
